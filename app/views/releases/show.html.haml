@@ -1,0 +1,29 @@
+- @title = @release.name
+
+#show
+  .post
+    .title= @release.name
+    .date= "Category: " + @release.category
+    .date= "Subcategory: " + @release.subcategory
+    .body
+      %b Description:
+      %br/
+      = @release.description
+      %br/
+      %br/
+      %b Leechers:
+      #{@release.stats[0]}
+      %b Seeders:
+      #{@release.stats[1]}
+      %br/
+      %br/
+      %h3
+        %b File list:
+      - @release.files.each do |file|
+        = file["path"][0].to_s + " => " + number_to_human_size(file["length"], :precision => 2)
+        %br/
+      %br/
+      = link_to 'Download', @release.torrent.url
+    .details
+      .author Posted by #{@release.user.username}
+

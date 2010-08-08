@@ -1,0 +1,29 @@
+= form_for(@release, :html => { :multipart => true }) do |f|
+  - if @release.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@release.errors.count, "error")
+        prohibited this post from being saved:
+      %ul
+        - @release.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .field
+    = f.label :category
+    %br/
+    = f.select :subcategory, grouped_options_for_select(ReleasesController::CATEGORIES), |
+      {:include_blank => true, :prompt => "Select category"}
+  .field
+    = f.label :description
+    %br/
+    = f.text_area :description
+  .field
+    = f.label :torrent
+    %br/
+    = f.file_field :torrent
+  .actions
+    = f.submit
+

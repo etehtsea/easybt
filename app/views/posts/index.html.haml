@@ -1,0 +1,12 @@
+- @title = "Welcome"
+
+#posts
+  - @posts.each do |post|
+    .post
+      %h2= link_to post.title, post
+      .body=raw(RuBB.to_html(post.body))
+      .details
+        = time_ago_in_words(post.created_at) + ' ago | '
+        = "0 comments"
+      .line
+

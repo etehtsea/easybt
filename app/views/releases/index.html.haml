@@ -1,0 +1,13 @@
+- @title = "Categories"
+
+#categories
+  .two_columns
+    - ReleasesController::CATEGORIES.each_pair do |category,subcategories|
+      #category_block
+        .category
+          %a{:href => "cat/#{category}"} #{category}
+        %ul.horiz_list
+          - subcategories.each do |subcategory|
+            %li.sub
+              %a{:href => "cat/#{category}/#{subcategory}"} #{subcategory}
+

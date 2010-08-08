@@ -1,0 +1,117 @@
+// This import applies a global reset to any page that imports this stylesheet.
+@import "blueprint/reset";
+
+// To configure blueprint, edit the partials/base.scss file.
+@import "partials/base";
+@import "compass/utilities";
+@import "compass/layout.scss";
+
+@import "blueprint";
+@import "compass/css3/columns";
+// Combine the partials into a single screen stylesheet.
+//@import "partials/page";
+//@import "partials/form";
+//@import "partials/two_col";
+
+
+@include blueprint-debug;
+@include blueprint-typography;
+
+$dblue_color: #2f5371;
+$bg_color: #eaf8cf;
+
+html,body {
+  background-color: #a0a0a0;
+  font-size: 12px;
+}
+
+.right {
+  @include float-right;
+}
+
+.details {
+}
+
+.line {
+  @include colruler;
+  margin: 1em 0em;
+  height: 0.2em;
+}
+
+#posts {
+  @include column(10);
+}
+img {
+  border-style: none; }
+
+a {
+  @include hover-link;
+  color: $dblue_color;
+  &:hover { color: #4982af; }
+  }
+
+h1 {
+  color: $dblue_color; }
+
+h2 {
+  color: #333366; }
+
+#container
+  { @include container;        }
+
+#header, #footer, #categories
+  { @include column(15);       }
+
+#header {
+  padding: 5px;
+  background-color: $bg_color;
+  border: 2px solid #bbbbbb;
+  font: {
+    size: $blueprint-font-size * 3;
+    weight: bold; };
+  color: $dblue_color; }
+
+#headmenu {
+  @include horizontal-list;
+  padding: 0 5px;
+  border: 2px solid #bbbbbb;
+  background: $bg_color;
+  font-size: $blueprint-font-size + 1px;
+  a {
+    color: #333366;
+    padding: 0.2em 0.4em;
+    &:hover { color: #333399; }
+  }
+}
+
+#content {
+  @include column(15);
+  padding: 0 15px;
+  background: $bg_color;
+  border: 2px solid #bbbbbb; }
+
+#footer {
+  padding: 0 5px;
+  background: $bg_color;
+  border: 2px solid #bbbbbb; }
+
+.category {
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+.horiz_list {
+  @include horizontal-list;
+}
+
+.two_columns {
+  @include column-count(2);
+  width: 500px;
+  margin-bottom: 20px;
+  height: 150px;
+}
+
+li.sub {
+  padding: 0 5px;
+}
+
