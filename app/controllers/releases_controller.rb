@@ -29,7 +29,7 @@ class ReleasesController < ApplicationController
 
   # GET /releases/1
   def show
-    @release = Release.where(:slug => params[:id]).first
+    @release = Release.find_by_slug(params[:id])
   end
 
   # GET /releases
@@ -38,21 +38,21 @@ class ReleasesController < ApplicationController
 
   # GET /releases/1/edit
   def edit
-    @release = Release.find(params[:id])
+    @release = Release.find_by_slug(params[:id])
   end
 
   # GET /category/:id(:subid/)
   def browse
-    if params[:subid] == !nil
-      @releases = Release.where(:category => params[:id].capitalize).and(:subcategory => params[:subid].capitalize)
+    if params[:subid]
+      @releases = Release.by_cat(params[:id]).by_subcat(params[:subid])
     else
-      @releases = Release.where(:category => params[:id].capitalize)
+      @releases = Release.by_cat(params[:id])
     end
   end
 
   # PUT /releases/1
   def update
-    @release = Release.find(params[:id])
+    @release = Release.find_by_slug(params[:id])
 
       if @release.update_attributes(params[:release])
         redirect_to(@release, :notice => 'Release was successfully updated.')
@@ -63,7 +63,7 @@ class ReleasesController < ApplicationController
 
   # DELETE /releases/1
   def destroy
-    @release = Release.find(params[:id])
+    @release = Release.find_by_slug(params[:id])
     @release.destroy
 
     redirect_to(releases_url)

@@ -20,10 +20,13 @@
       %h3
         %b File list:
       - @release.files.each do |file|
-        = file["path"][0].to_s + " => " + number_to_human_size(file["length"], :precision => 2)
+        = file["path"][0].to_s + " => " + number_to_human_size(file["length"],
+        :precision => 2)
         %br/
       %br/
       = link_to 'Download', @release.torrent.url
     .details
       .author Posted by #{@release.user.username}
+      = link_to 'Destroy', @release,
+      :confirm => 'Are you sure?', :method => :delete
 
