@@ -5,7 +5,7 @@ class Admin
   # :token_authenticatable, :confirmable, :lockable,
   # :recoverable, :registerable and :timeoutable
   devise :database_authenticatable,
-         :rememberable, :registerable, :trackable, :validatable
+         :rememberable, :trackable, :validatable
   field :username
 end
 
