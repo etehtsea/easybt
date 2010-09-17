@@ -33,12 +33,15 @@ class Release
   before_create :get_category, :get_metainfo
   belongs_to_related :user
 
-  scope :by_cat,
-    lambda { |id| { :where => { :category => id.capitalize } } }
-  scope :by_subcat,
-    lambda { |id| { :where => { :subcategory => id.capitalize } } }
+ class << self
+    def by_cat(id)
+      where(:category => id.capitalize)
+    end
 
-  class << self
+    def by_subcat
+      where(subcategory => id.capitalize)
+    end
+
     def find_by_slug(id)
       where(:slug => id).first
     end
