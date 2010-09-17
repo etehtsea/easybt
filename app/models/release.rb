@@ -46,6 +46,7 @@ class Release
       where(:slug => id).first
     end
   end
+
   protected
 
     def get_category
