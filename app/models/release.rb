@@ -56,7 +56,7 @@ class Release
     end
 
     def get_metainfo
-      tfile           = "/home/kes/Projects/easybt/public" + self.torrent.to_s
+      tfile           = Rails.root.to_s + self.torrent.to_s
       decoded_torrent = BEncodr.decode_file(tfile)
       metainfo        = decoded_torrent.fetch("info")
 

@@ -2,10 +2,8 @@
 
 #posts
   - @releases.each do |release|
-    .post
-      %h2= link_to release.name, release
-      .body= release.description
-      .details
-        = "0 comments"
-      .line
+    .horiz_list
+      = link_to release.name, release
+      = release.
+    .line
 
