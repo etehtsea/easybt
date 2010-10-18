@@ -53,7 +53,6 @@ module Easybt
       g.orm             :mongoid
       g.template_engine :haml
     end
-
   end
 end
 

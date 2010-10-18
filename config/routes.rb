@@ -12,6 +12,7 @@ Easybt::Application.routes.draw do |map|
   root :to => "home#index"
 
   match 'cat/:id(/:subid)' => 'releases#browse'
+  match "/uploads/torrents/get/*path" => "gridfs#serve"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
