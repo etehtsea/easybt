@@ -5,3 +5,5 @@ tmp/**/*
 public/uploads/*
 config/mongoid.yml
 Gemfile.lock
+*~
+.redcar
