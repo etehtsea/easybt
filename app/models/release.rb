@@ -1,7 +1,6 @@
 require 'bencodr'
 require 'digest/sha1'
 require 'cgi'
-require 'curb'
 require 'carrierwave/orm/mongoid'
 
 class Release
@@ -56,30 +55,24 @@ class Release
     end
 
     def get_metainfo
-      tfile           = Rails.root.to_s + "/public/" + self.torrent.to_s
-      decoded_torrent = BEncodr.decode_file(tfile)
-      metainfo        = decoded_torrent.fetch("info")
+      tfile    = Rails.root.to_s + "/public/" + self.torrent.to_s
+      metainfo = BEncodr.decode_file(tfile).fetch("info")
 
       if metainfo.key?("files")
-        files = metainfo.fetch("files")
-        files.each {|file| self.files << file }
+        self.files = metainfo.fetch("files")
       else
         hash = Hash.new
-        tmp  = Array.new
         hash["length"] = metainfo.fetch("length")
-        tmp            << metainfo.fetch("name")
-        hash["path"]   = tmp
+        hash["path"]   = Array.new << (metainfo.fetch("name"))
 
         self.files << hash
       end
 
-      infohash        = decoded_torrent.fetch("info").bencode
+      infohash        = metainfo.bencode
       infohash_sha1   = Digest::SHA1.digest(infohash)
       infohash_esc    = CGI::escape(infohash_sha1)
 
       self.trhash     = infohash_esc
-
-
     end
 end
 
