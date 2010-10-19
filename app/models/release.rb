@@ -9,6 +9,14 @@ class Release
 
   mount_uploader :torrent, TorrentUploader
 
+  CATEGORIES = {
+   'Audio'        => ['Music', 'A-books'],
+   'Video'        => ['Movies','Serials'],
+   'Applications' => ['Windows', 'Unix', 'Mac'],
+   'Games'        => ['Pc', 'Mac', 'Console'],
+   'Other'        => ['E-books', 'Pictures', 'Comics']
+  }
+
   field :name
   slug  :name
   field :description
@@ -49,7 +57,7 @@ class Release
   protected
 
     def get_category
-      ReleasesController::CATEGORIES.each_pair do |cat, sub|
+      CATEGORIES.each_pair do |cat, sub|
         self.category = cat if sub.include?(self.subcategory)
       end
     end

@@ -14,7 +14,7 @@
   .field
     = f.label :category
     %br/
-    = f.select :subcategory, grouped_options_for_select(ReleasesController::CATEGORIES), |
+    = f.select :subcategory, grouped_options_for_select(Release::CATEGORIES), |
       {:include_blank => true, :prompt => "Select category"}
   .field
     = f.label :description

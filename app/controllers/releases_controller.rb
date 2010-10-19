@@ -1,13 +1,4 @@
 class ReleasesController < ApplicationController
-  CATEGORIES = {
-   'Audio'        => ['Music', 'A-books'],
-   'Video'        => ['Movies','Serials'],
-   'Applications' => ['Windows', 'Unix', 'Mac'],
-   'Games'        => ['Pc', 'Mac', 'Console'],
-   'Other'        => ['E-books', 'Pictures', 'Comics']
-  }
-  TRACKER_URI = "http://fileshare.su:6969"
-
   before_filter :authorize!,  :except => [:index, :show]
 
   # GET /releases/new

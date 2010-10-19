@@ -1,4 +1,3 @@
-#class GridfsController < ApplicationController
 require 'mongo'
 
 class GridfsController < ActionController::Metal
@@ -15,4 +14,3 @@ class GridfsController < ActionController::Metal
     end
   end
 end
-#end

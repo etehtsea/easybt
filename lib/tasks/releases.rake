@@ -1,6 +1,8 @@
 namespace :releases do
   desc "Fetch all releases stats"
   task :fetch => :environment do
+    require 'curb'
+
     TRACKER_URI  = "http://fileshare.su:6969"
 
     def generate_stats
