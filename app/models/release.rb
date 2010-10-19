@@ -38,8 +38,8 @@ class Release
       where(:category => id.capitalize)
     end
 
-    def by_subcat
-      where(subcategory => id.capitalize)
+    def by_subcat(id)
+      where(:subcategory => id.capitalize)
     end
 
     def find_by_slug(id)
