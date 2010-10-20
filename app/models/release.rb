@@ -6,6 +6,7 @@ require 'carrierwave/orm/mongoid'
 class Release
   include Mongoid::Document
   include Mongoid::Slug
+  include Mongoid::Timestamps
 
   mount_uploader :torrent, TorrentUploader
 

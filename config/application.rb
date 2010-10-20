@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 # Pick the frameworks you want:
+require 'home_run'
 require "action_controller/railtie"
 require 'mongoid/railtie'
 
