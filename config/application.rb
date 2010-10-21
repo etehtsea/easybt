@@ -56,4 +56,3 @@ module Easybt
     end
   end
 end
-
