@@ -11,7 +11,6 @@ class UpdateStats
   end
 
   @@logger = Logger.new("log/stats_updater.log")
-  #@@logger = Logger.new(STDOUT)
   @@logger.level = Logger::INFO
 
   def self.log
