@@ -12,5 +12,9 @@ class Post
 
   index [[:created_at, Mongo::DESCENDING]]
 
+  class << self
+    def find_by_slug(id)
+      where(:slug => id).first
+    end
+  end
 end
-

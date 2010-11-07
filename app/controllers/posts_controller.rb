@@ -3,12 +3,12 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.criteria.order_by([:created_at, :desc])
+    @posts = Post.order_by([:created_at, :desc])
   end
 
   # GET /posts/1
   def show
-    @post = Post.where(:slug => params[:id]).first
+    @post = Post.find_by_slug(params[:id])
   end
 
   # GET /posts/new
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @post = Post.where(:slug => params[:id]).first
+    @post = Post.find_by_slug(params[:id])
   end
 
   # POST /posts
@@ -34,7 +34,7 @@ class PostsController < ApplicationController
 
   # PUT /posts/1
   def update
-    @post = Post.where(:slug => params[:id]).first
+    @post = Post.find_by_slug(params[:id])
 
     if @post.update_attributes(params[:post])
       redirect_to(@post, :notice => 'Post was successfully updated.')
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1
   def destroy
-    @post = Post.where(:slug => params[:id]).first
+    @post = Post.find_by_slug(params[:id])
     @post.destroy
 
     redirect_to(posts_url)
