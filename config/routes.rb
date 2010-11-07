@@ -4,11 +4,8 @@ Easybt::Application.routes.draw do |map|
   resources :posts
   resources :releases
 
-  match 'about' => 'home#about'
-  get "home/index"
-
-  root :to => "home#index"
+  root :to => "pages#index"
 
   match 'cat/:id(/:subid)' => 'releases#browse'
-  match "/uploads/torrents/get/*path" => "gridfs#serve"  
+  match "/uploads/torrents/get/*path" => "gridfs#serve"
 end

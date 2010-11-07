@@ -14,6 +14,7 @@ gem 'carrierwave',    '~>0.5.0'
 gem 'devise',          '~>1.1.2'
 gem 'cancan',         :git => "https://github.com/bowsersenior/cancan.git"
 
+gem 'high_voltage',   :git => "https://github.com/thoughtbot/high_voltage.git"
 gem 'compass'
 gem 'haml'
 gem 'rubb'
