@@ -12,7 +12,7 @@ gem 'bson_ext'
 gem 'carrierwave',    '~>0.5.0'
 
 gem 'devise',          '~>1.1.2'
-gem 'cancan'
+gem 'cancan',         :git => "https://github.com/bowsersenior/cancan.git"
 
 gem 'compass'
 gem 'haml'

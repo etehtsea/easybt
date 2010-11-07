@@ -50,7 +50,7 @@ class Release
       where(:subcategory => id.capitalize)
     end
 
-    def find_by_slug(id)
+    def find_by_slug!(id)
       where(:slug => id).first
     end
   end

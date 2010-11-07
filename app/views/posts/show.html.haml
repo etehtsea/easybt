@@ -7,6 +7,9 @@
     .body=raw(RuBB.to_html(@post.body))
 
   %p
-    = link_to 'Edit', edit_post_path(@post) |
+    - if can? :update, @post
+      = link_to 'Edit', edit_post_path(@post) |
+    - if can? :delete, @post
+      = link_to 'Delete', @post, :method => :delete, :confirm => "Are you sure?" | 
     = link_to 'Back', posts_path
 

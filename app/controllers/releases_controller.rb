@@ -1,14 +1,9 @@
 class ReleasesController < ApplicationController
-  before_filter :authorize!,  :except => [:index, :show]
-
-  # GET /releases/new
-  def new
-    @release = Release.new
-  end
-
+  load_and_authorize_resource :find_by => :slug,
+                              :except => :browse
+                      
   # POST /releases
   def create
-    @release      = Release.new(params[:release])
     @release.user = current_user
 
     if @release.save
@@ -16,20 +11,6 @@ class ReleasesController < ApplicationController
     else
       render :action => "new"
     end
-  end
-
-  # GET /releases/1
-  def show
-    @release = Release.find_by_slug(params[:id])
-  end
-
-  # GET /releases
-  def index
-  end
-
-  # GET /releases/1/edit
-  def edit
-    @release = Release.find_by_slug(params[:id])
   end
 
   # GET /category/:id(:subid/)
@@ -43,9 +24,7 @@ class ReleasesController < ApplicationController
 
   # PUT /releases/1
   def update
-    @release = Release.find_by_slug(params[:id])
-
-      if @release.update_attributes(params[:release])
+    if @release.update_attributes(params[:release])
         redirect_to(@release, :notice => 'Release was successfully updated.')
       else
         render :action => "edit"
@@ -54,16 +33,8 @@ class ReleasesController < ApplicationController
 
   # DELETE /releases/1
   def destroy
-    @release = Release.find_by_slug(params[:id])
     @release.destroy
-
+    
     redirect_to(releases_url)
   end
-
-  private
-
-    def authorize!
-        authenticate_user! if !admin_signed_in?
-    end
 end
-

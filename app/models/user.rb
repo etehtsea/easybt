@@ -6,7 +6,8 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   field :username
-
+  field :admin, :type => Boolean, :default => false
+  
   validates_presence_of   :username
   validates_length_of     :username, :within => 3..10
   validates_uniqueness_of :username
@@ -14,6 +15,8 @@ class User
                           :with   => /^[-\w\._@]+$/i,
                           :message => "should only contain letters, numbers, or .-_@"
   has_many_related :releases
-
+  
+  def admin?
+    self.admin
+  end
 end
-
