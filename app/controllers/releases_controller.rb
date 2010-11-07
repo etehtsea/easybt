@@ -1,7 +1,7 @@
 class ReleasesController < ApplicationController
   load_and_authorize_resource :find_by => :slug,
-                              :except => :browse
-                      
+                              :except  => :browse
+                  
   # POST /releases
   def create
     @release.user = current_user
@@ -25,16 +25,15 @@ class ReleasesController < ApplicationController
   # PUT /releases/1
   def update
     if @release.update_attributes(params[:release])
-        redirect_to(@release, :notice => 'Release was successfully updated.')
-      else
-        render :action => "edit"
-      end
+      redirect_to(@release, :notice => 'Release was successfully updated.')
+    else
+      render :action => "edit"
+    end
   end
 
   # DELETE /releases/1
   def destroy
-    @release.destroy
-    
+    @release.destroy  
     redirect_to(releases_url)
   end
 end
