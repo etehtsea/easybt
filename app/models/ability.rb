@@ -1,5 +1,3 @@
-#TODO: resolve fucking cancan bug with :user_id => user.id
-
 class Ability
   include CanCan::Ability
 
@@ -11,8 +9,10 @@ class Ability
       if user.admin?
         can :manage, :all
       else
-        can :create, Release
-        can [:update, :destroy], Release, :user_id => user.id          
+        can [:create, :read], Release
+        can [:update, :destroy], Release do |release|    
+          release.user.id == user.id
+        end
         can :read,  :all
       end
     end
