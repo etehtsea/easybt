@@ -10,9 +10,7 @@ class Ability
         can :manage, :all
       else
         can [:create, :read], Release
-        can [:update, :destroy], Release do |release|    
-          release.user.id == user.id
-        end
+        can [:update, :destroy], Release, :user_id => user.id
         can :read,  :all
       end
     end
