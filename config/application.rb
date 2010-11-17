@@ -51,8 +51,10 @@ module Easybt
     config.filter_parameters += [:password]
 
     config.generators do |g|
-      g.orm             :mongoid
-      g.template_engine :haml
+      g.orm                 :mongoid
+      g.template_engine     :haml
+      g.test_framework      :rspec, :fixture => true
+      g.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
   end
 end

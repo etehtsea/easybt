@@ -28,16 +28,9 @@ gem 'bencodr'
 gem 'curb'
 gem 'home_run'
 
-group :test, :development do
-  gem "rspec-rails", "~> 2.1.0"
-end
-
-group :development do
-  gem "wirble"
-end
-
 # Testing
 group :test do
+  gem "rspec-rails", "~> 2.1.0", :group => :development
   gem 'capybara'
   gem 'database_cleaner'
   gem 'cucumber-rails'
