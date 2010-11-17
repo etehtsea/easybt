@@ -8,3 +8,4 @@ config/mongoid.yml
 Gemfile.lock
 *~
 .redcar
+*.rbc
