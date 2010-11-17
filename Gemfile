@@ -4,7 +4,7 @@ gem 'rails',          '~>3.0.0'
 
 # Database gems
 gem 'bson_ext'
-gem 'mongoid',        :git => "http://github.com/mongoid/mongoid.git",
+gem 'mongoid',        :git => "https://github.com/mongoid/mongoid.git",
                       :tag => "2.0.0.beta.20"
 gem 'mongoid_slug',   :git => "git://github.com/etehtsea/mongoid-slug.git",
                       :require => 'mongoid/slug'
@@ -20,6 +20,7 @@ gem 'cancan',         :git => "https://github.com/bowsersenior/cancan.git"
 gem 'high_voltage',   :git => "https://github.com/thoughtbot/high_voltage.git"
 gem 'compass'
 gem 'haml'
+gem 'haml-rails'
 gem 'rubb'
 
 # Ancillary gems
@@ -27,11 +28,21 @@ gem 'bencodr'
 gem 'curb'
 gem 'home_run'
 
+group :test, :development do
+  gem "rspec-rails", "~> 2.1.0"
+end
+
+group :development do
+  gem "wirble"
+end
+
 # Testing
-gem 'capybara'
-gem 'database_cleaner'
-gem 'cucumber-rails'
-gem 'cucumber'
-gem 'rspec-rails'
-gem 'spork'
-gem 'launchy'
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'cucumber-rails'
+  gem 'cucumber'
+  gem 'spork'
+  gem 'launchy'
+  gem 'factory_girl_rails'
+end
