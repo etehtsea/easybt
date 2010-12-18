@@ -2,7 +2,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
   
-  #TODO: decide where user will be redirecting to
-  #  rescue_from CanCan::AccessDenied do |exception|
-  #  end
+  rescue_from CanCan::AccessDenied do |exception|
+    if user_signed_in?
+      redirect_to root_path, :alert => "You can't do this."
+    else
+      redirect_to new_user_session_path, :alert => 'You need to authorize first!'
+    end
+  end
 end
