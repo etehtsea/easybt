@@ -1,4 +1,4 @@
-Easybt::Application.routes.draw do |map|
+Easybt::Application.routes.draw do
   devise_for :users
 
   resources :posts
