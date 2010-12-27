@@ -30,7 +30,7 @@ class UpdateStats
     subset  = @coll.find({ "updated_at" => { "$lt" => Time.now - time_diff }})
     if subset.count > 0
       subset.each do |release|
-        infohash              = release["trhash"]
+        infohash                = release["trhash"]
         begin
           get                   = Curl::Easy.perform("#{@tracker_uri}/announce?info_hash=#{infohash}")
           fetched               = get.body_str.bdecode
