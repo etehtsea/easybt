@@ -9,3 +9,5 @@
         = time_ago_in_words(post.created_at) + ' ago | '
         = "0 comments"
       .line
+  - if can? :create, Post
+    = link_to "Add post", new_post_path
