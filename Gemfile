@@ -1,11 +1,11 @@
 source 'http://rubygems.org'
 
-gem 'rails',          '~>3.0.0'
+gem "rack",  :git => 'git://github.com/rack/rack.git'
+gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 # Database gems
 gem 'bson_ext'
-gem 'mongoid',        :git => "https://github.com/mongoid/mongoid.git",
-                      :tag => "2.0.0.beta.20"
+gem 'mongoid',        :git => "https://github.com/etehtsea/mongoid.git"
 gem 'mongoid_slug',   :git => "git://github.com/etehtsea/mongoid-slug.git",
                       :require => 'mongoid/slug'
 
@@ -14,7 +14,10 @@ gem 'carrierwave',    '~>0.5.0'
 
 # User management
 gem 'devise',          '~>1.1.2'
-gem 'cancan',         :git => "https://github.com/bowsersenior/cancan.git"
+gem 'cancan',         :git => "https://github.com/ryanb/cancan.git"
+
+# Controllers
+gem 'inherited_resources', :git => "https://github.com/josevalim/inherited_resources.git"
 
 # View/Design management
 gem 'high_voltage',   :git => "https://github.com/thoughtbot/high_voltage.git"
