@@ -6,7 +6,7 @@ gem 'rails', :git => 'git://github.com/rails/rails.git'
 # Database gems
 gem 'bson_ext'
 gem 'mongoid',        :git => "https://github.com/etehtsea/mongoid.git"
-gem 'mongoid_slug',   :git => "git://github.com/etehtsea/mongoid-slug.git",
+gem 'mongoid_slug',   :git => "git://github.com/papercavalier/mongoid-slug.git",
                       :require => 'mongoid/slug'
 
 # File management
@@ -29,7 +29,7 @@ gem 'rubb'
 # Ancillary gems
 gem 'bencodr'
 gem 'curb'
-gem 'home_run'
+#gem 'home_run'
 
 # Testing
 group :test do
