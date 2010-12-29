@@ -49,10 +49,6 @@ class Release
     def by_subcat(id)
       where(:subcategory => id.capitalize)
     end
-
-    def find_by_slug(id)
-      where(:slug => id).first
-    end
   end
 
   protected

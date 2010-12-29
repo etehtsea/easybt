@@ -13,10 +13,4 @@ class Post
   index [[:created_at, Mongo::DESCENDING]]
   
   default_scope desc(:created_at)
-  
-  class << self
-    def find_by_slug(id)
-      where(:slug => id).first
-    end
-  end
 end
