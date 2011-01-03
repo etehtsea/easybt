@@ -1,15 +1,15 @@
-- @title = @post.title
+- @title = resource.title
 
 #posts
   .post
-    %h2= @post.title
-    .details= time_ago_in_words(@post.created_at) + ' ago'
-    .body=raw(RuBB.to_html(@post.body))
+    %h2= resource.title
+    .details= time_ago_in_words(resource.created_at) + ' ago'
+    .body=raw(RuBB.to_html(resource.body))
 
   %p
-    - if can? :update, @post
-      = link_to 'Edit', edit_post_path(@post) |
-    - if can? :delete, @post
-      = link_to 'Delete', @post, :method => :delete, :confirm => "Are you sure?" |
-    = link_to 'Back', posts_path
+    - if can? :update, resource
+      = link_to 'Edit', edit_resource_url(resource) |
+    - if can? :delete, resource
+      = link_to 'Delete', resource, :method => :delete, :confirm => "Are you sure?" |
+    = link_to 'Back', collection_url
 
