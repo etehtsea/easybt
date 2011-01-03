@@ -1,7 +1,9 @@
 = semantic_form_for resource, :html => { :multipart => true } do |f|
   = f.inputs do
     = f.input :name
-    = f.input :subcategory, :as => :select, :label => "Category", :collection => grouped_options_for_select(Release::CATEGORIES)
+    = f.input :subcategory, :as => :select, :label => "Category", |
+                            :prompt => "Select category", |
+                            :collection => grouped_options_for_select(Release::CATEGORIES)
     = f.input :description, :as => :text
     = f.input :torrent,     :as => :file
   = f.buttons
