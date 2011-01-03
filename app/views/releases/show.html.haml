@@ -1,32 +1,32 @@
-- @title = @release.name
+- @title = resource.name
 
 #show
   .post
-    .title= @release.name
-    .date= "Category: " + @release.category
-    .date= "Subcategory: " + @release.subcategory
+    .title= resource.name
+    .date= "Category: " + resource.category
+    .date= "Subcategory: " + resource.subcategory
     .body
       %b Description:
       %br/
-      = @release.description
+      = resource.description
       %br/
       %br/
       %b Leechers:
-      #{@release.stats[0]}
+      #{resource.stats[0]}
       %b Seeders:
-      #{@release.stats[1]}
+      #{resource.stats[1]}
       %br/
       %br/
       %h3
         %b File list:
-      - @release.files.each do |file|
+      - resource.files.each do |file|
         = file["path"][0].to_s + " => " + number_to_human_size(file["length"],
         :precision => 2)
         %br/
       %br/
-      = link_to 'Download', @release.torrent.url
+      = link_to 'Download', resource.torrent.url
     .details
-      .author Posted by #{@release.user.username}
-      = link_to 'Destroy', @release,
+      .author Posted by #{resource.user.username}
+      = link_to 'Destroy', resource,
       :confirm => 'Are you sure?', :method => :delete
 
