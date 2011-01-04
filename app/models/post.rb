@@ -12,5 +12,5 @@ class Post
 
   index [[:created_at, Mongo::DESCENDING]]
   
-#  default_scope desc(:created_at)
+  default_scope desc(:created_at)
 end
