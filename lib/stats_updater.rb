@@ -6,58 +6,62 @@ require 'logger'
 class UpdateStats
   include Mongo
 
-  def initialize(trackeruri)
-    @tracker_uri = trackeruri
+  def initialize(tracker_uri, database, collection)
+    @log = Logger.new(STDOUT)
+    @log.level = Logger::INFO
+
+    @tracker_uri = tracker_uri
+    @database    = database
+    @collection  = collection
+
+    connect_to_db(database)
   end
 
-  @@logger = Logger.new("log/stats_updater.log")
-  @@logger.level = Logger::INFO
-
-  def self.log
-    class_variable_get(:@@logger)
-  end
-
-  def connect_to_db(database, collection)
+  def connect_to_db(database)
     begin
-      @db      = Connection.new.db(database)
-      @coll    = @db.collection(collection)
+      @con = Connection.new
     rescue Mongo::ConnectionFailure
-      @@logger.fatal "Can't connect to the database"
+      @log.fatal "Couldn't connect to the database"
+      @log.info  "Waiting for 600 seconds..."
+      sleep 600
+      retry
+    else
+      @db  = @con.db(database)
     end
   end
 
   def update_stats(time_diff)
-    subset  = @coll.find({ "updated_at" => { "$lt" => Time.now - time_diff }})
-    if subset.count > 0
-      subset.each do |release|
-        infohash                = release["trhash"]
-        begin
-          get                   = Curl::Easy.perform("#{@tracker_uri}/announce?info_hash=#{infohash}")
+    if @con.connected?
+      @coll   = @db.collection(@collection) if @con.connected?
+      subset  = @coll.find({ "updated_at" => { "$lt" => Time.now - time_diff }})
+      if subset.count > 0
+        subset.each do |release|
+          infohash = release["trhash"]
+          begin
+            get = Curl::Easy.perform("#{@tracker_uri}/announce?info_hash=#{infohash}")
+          rescue Curl::Err::ConnectionFailedError
+            @log.fatal "Couldn't connect to tracker"
+            @log.info "Waiting for 600 seconds..."
+            sleep 600
+            retry
+          end
           fetched               = get.body_str.bdecode
           release["stats"]      = Array[fetched["incomplete"], fetched["complete"]]
           release["updated_at"] = Time.now
           @coll.save(release)
-        rescue Curl::Err::ConnectionFailedError
-          @@logger.error "Can't connect to the tracker"
-          raise "Failed to connect to the tracker"
         end
       end
+      @log.info "Everything is ok, waiting 180 sec for next update"
+      sleep 180
+    else
+      connect_to_db(@database)
     end
   end
 end
 
-updater = UpdateStats.new("http://192.168.1.1:6969")
-updater.connect_to_db('easybt_development', 'releases')
+TRACKER_URI = 'http://192.168.1.1:6969'
+DATABASE    = 'easybt_development'
+COLLECTION  = 'releases'
 
-loop do
-  UpdateStats.log.info "Executing update_stats method"
-  begin
-    update = Thread.new { updater.update_stats(480) }
-    UpdateStats.log.info "Going to sleep (180)..."
-    sleep 180
-  rescue RuntimeError
-    UpdateStats.log.info "Going to sleep (300)..."
-    sleep 300
-    update.kill if update.alive?
-  end
-end
+updater = UpdateStats.new(TRACKER_URI, DATABASE, COLLECTION)
+loop { updater.update_stats(480) }
