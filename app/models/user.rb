@@ -5,6 +5,8 @@ class User
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  devise :encryptable, :encryptor => :sha1
+  
   field :username
   field :admin, :type => Boolean, :default => false
   
@@ -14,7 +16,8 @@ class User
   validates_format_of     :username,
                           :with   => /^[-\w\._@]+$/i,
                           :message => "should only contain letters, numbers, or .-_@"
-  has_many_related :releases
+
+  references_many :releases
   
   def admin?
     self.admin

@@ -1,8 +1,8 @@
 class Post
   include Mongoid::Document
   include Mongoid::Slug
-  include Mongoid::Timestamps # adds created_at and updated_at fields
-
+  include Mongoid::Timestamps
+  
   field :title
   slug  :title
   field :body
@@ -12,5 +12,5 @@ class Post
 
   index [[:created_at, Mongo::DESCENDING]]
   
-  default_scope desc(:created_at)
+#  default_scope desc(:created_at)
 end

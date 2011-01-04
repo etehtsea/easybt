@@ -39,9 +39,10 @@ class Release
                           :message => 'This torrent had been uploaded before'
 
   before_create :get_category, :get_metainfo
-  belongs_to_related :user
+  
+  referenced_in :user
 
- class << self
+  class << self
     def by_cat(id)
       where(:category => id.capitalize)
     end
