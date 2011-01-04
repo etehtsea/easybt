@@ -6,18 +6,18 @@ require 'logger'
 class UpdateStats
   include Mongo
 
-  def initialize(tracker_uri, database, collection)
+  def initialize(tracker_uri, db_name, coll_name)
     @log = Logger.new(STDOUT)
     @log.level = Logger::INFO
 
     @tracker_uri = tracker_uri
-    @database    = database
-    @collection  = collection
+    @db_name     = db_name
+    @coll_name   = coll_name
 
-    connect_to_db(database)
+    connect_to_db(db_name)
   end
 
-  def connect_to_db(database)
+  def connect_to_db(db_name)
     begin
       @con = Connection.new
     rescue Mongo::ConnectionFailure
@@ -26,14 +26,14 @@ class UpdateStats
       sleep 600
       retry
     else
-      @db  = @con.db(database)
+      @db  = @con.db(db_name)
     end
   end
 
   def update_stats(time_diff)
     if @con.connected?
-      @coll   = @db.collection(@collection) if @con.connected?
-      subset  = @coll.find({ "updated_at" => { "$lt" => Time.now - time_diff }})
+      coll   = @db.collection(@coll_name)
+      subset  = coll.find({ "updated_at" => { "$lt" => Time.now - time_diff }})
       if subset.count > 0
         subset.each do |release|
           infohash = release["trhash"]
@@ -46,22 +46,22 @@ class UpdateStats
             retry
           end
           fetched               = get.body_str.bdecode
-          release["stats"]      = Array[fetched["incomplete"], fetched["complete"]]
+          release["stats"]      = [fetched["incomplete"], fetched["complete"]]
           release["updated_at"] = Time.now
-          @coll.save(release)
+          coll.save(release)
         end
       end
       @log.info "Everything is ok, waiting 180 sec for next update"
       sleep 180
     else
-      connect_to_db(@database)
+      connect_to_db(@db_name)
     end
   end
 end
 
 TRACKER_URI = 'http://192.168.1.1:6969'
-DATABASE    = 'easybt_development'
-COLLECTION  = 'releases'
+DB_NAME     = 'easybt_development'
+COLL_NAME   = 'releases'
 
-updater = UpdateStats.new(TRACKER_URI, DATABASE, COLLECTION)
+updater = UpdateStats.new(TRACKER_URI, DB_NAME, COLL_NAME)
 loop { updater.update_stats(480) }
