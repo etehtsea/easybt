@@ -1,8 +1,6 @@
 class ReleasesController < InheritedResources::Base
-  load_and_authorize_resource
+  load_and_authorize_resource :except => :browse
   defaults :finder => :find_by_slug
-  
-  load_and_authorize_resource :except  => :browse
 
   # POST /releases
   def create

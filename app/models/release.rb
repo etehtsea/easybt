@@ -39,8 +39,9 @@ class Release
                           :message => 'This torrent had been uploaded before'
 
   before_create :get_category, :get_metainfo
-  
+
   referenced_in :user
+  embeds_many :comments, :as => :commentable
 
   class << self
     def by_cat(id)

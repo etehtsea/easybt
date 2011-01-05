@@ -18,6 +18,7 @@ class User
                           :message => "should only contain letters, numbers, or .-_@"
 
   references_many :releases
+  references_many :comments
   
   def admin?
     self.admin

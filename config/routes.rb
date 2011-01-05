@@ -1,8 +1,11 @@
 Easybt::Application.routes.draw do
   devise_for :users
 
-  resources :posts
-  resources :releases
+  %w(posts releases).each do |resource|
+    resources resource.to_sym do
+      resources :comments
+    end
+  end
 
   root :to => "pages#index"
 

@@ -1,0 +1,17 @@
+- if resource.comments.size > 0
+  %h3 Comments
+  - resource.comments.each do |comment|
+    %strong= comment.user.username
+    wrote:
+    %p= comment.content
+
+%h3 New Comment
+- if can? :create, Comment
+  = semantic_form_for [resource, Comment.new] do |f|
+    = f.inputs do
+      %p= f.input :content, :as => :text, :rows => 10
+    %p= f.buttons
+- else
+  You must
+  = link_to 'log in', new_user_session_path
+  to comment.

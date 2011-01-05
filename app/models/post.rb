@@ -13,4 +13,6 @@ class Post
   index [[:created_at, Mongo::DESCENDING]]
   
   default_scope desc(:created_at)
+  
+  embeds_many :comments, :as => :commentable
 end
