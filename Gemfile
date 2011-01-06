@@ -23,10 +23,6 @@ gem 'responders',           :git => "git://github.com/plataformatec/responders.g
 gem 'inherited_resources',  :git => "git://github.com/etehtsea/inherited_resources.git",
                             :branch => 'rails31'
 
-#gem 'inherited_resources_views', :git => "git://github.com/fredwu/inherited_resources_views.git"
-#gem 'hpricot'
-#gem 'ruby_parser'
-
 # View/Design management
 gem 'high_voltage',         :git => "https://github.com/thoughtbot/high_voltage.git"
 gem 'compass'
@@ -40,7 +36,7 @@ gem 'bencodr'
 gem 'curb'
 #gem 'home_run'
 gem 'rails3-generators'
-
+gem 'jquery-rails'
 # Testing
 group :test do
   gem "rspec-rails", "~> 2.1.0", :group => :development
