@@ -3,12 +3,12 @@ Easybt::Application.routes.draw do
 
   %w(posts releases).each do |resource|
     resources resource.to_sym do
-      resources :comments
+      resources :comments, :only => [:create, :edit, :update, :destroy]
     end
   end
 
   root :to => "pages#index"
 
-  match 'cat/:id(/:subid)' => 'releases#browse'
+  match 'cat/:id(/:subid)'            => 'releases#browse'
   match "/uploads/torrents/get/*path" => "gridfs#serve"
 end

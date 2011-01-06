@@ -1,15 +1,24 @@
 class CommentsController < InheritedResources::Base
-  belongs_to :post, :release, :polymorphic => true
+  belongs_to :post, :release,
+             :polymorphic => true,
+             :finder => :find_by_slug
+  
+  load_and_authorize_resource :post, :find_by => :slug
+  load_and_authorize_resource :release, :find_by => :slug
+
+  load_and_authorize_resource :comment, :through => [:post, :release]
   
   def create
-    if params[:post_id]
-      @commentable = Post.find_by_slug(params[:post_id])
-    else
-      @commentable = Release.find_by_slug(params[:release_id])
-    end
-    @comment = @commentable.comments.create!(params[:comment])
+    create! { :back }
     @comment.user = current_user
     @comment.save
-    redirect_to @commentable, :notice => "Comment created!"
+  end
+  
+  def update
+    update! { polymorphic_url(parent) }
+  end
+  
+  def destroy
+    destroy! { :back }
   end
 end

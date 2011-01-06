@@ -3,7 +3,12 @@
   - resource.comments.each do |comment|
     %strong= comment.user.username
     wrote:
-    %p= comment.content
+    %p
+      = comment.content
+      - if can? :edit, Comment
+        = link_to "Edit", edit_polymorphic_path([resource, comment])
+      - if can? :delete, Comment
+        = link_to "Delete", [resource, comment], :method => :delete, :confirm => "Are you sure?"
 
 %h3 New Comment
 - if can? :create, Comment
