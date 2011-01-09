@@ -10,13 +10,12 @@ gem 'mongoid_slug',         :git => "git://github.com/papercavalier/mongoid-slug
                             :require => 'mongoid/slug'
 
 # File management
-gem 'carrierwave',          :git => "git://github.com/etehtsea/carrierwave.git",
-                            :branch => 'rails31'
+gem 'carrierwave',          :git => "git://github.com/stephencelis/carrierwave.git",
+                            :branch => 'class-attribute'
 
 # User management
 gem 'devise',               :git => "git://github.com/plataformatec/devise.git"
-gem 'cancan',               :git => "git://github.com/ryanb/cancan.git",
-                            :ref => '2d31cbd'
+gem 'cancan',               :git => "git://github.com/ryanb/cancan.git"
 
 # Controllers
 gem 'responders',           :git => "git://github.com/plataformatec/responders.git"
@@ -34,17 +33,17 @@ gem 'formtastic',           :git => "https://github.com/justinfrench/formtastic.
 # Ancillary gems
 gem 'bencodr'
 gem 'curb'
-#gem 'home_run'
-gem 'rails3-generators'
 gem 'jquery-rails'
+
 # Testing
+#group :development, :test do
+#  gem 'rspec-rails'
+#  gem 'cucumber-rails'
+#end
+
 group :test do
-  gem "rspec-rails", "~> 2.1.0", :group => :development
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'cucumber-rails'
-  gem 'cucumber'
-  gem 'spork'
+  gem 'fabrication'
   gem 'launchy'
-  gem 'factory_girl_rails', '1.1.beta1', :group => :development
 end
