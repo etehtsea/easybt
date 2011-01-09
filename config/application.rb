@@ -1,10 +1,8 @@
 require File.expand_path('../boot', __FILE__)
 
 # Pick the frameworks you want:
-#require 'home_run'
 require "action_controller/railtie"
 require 'mongoid/railtie'
-
 require "action_mailer/railtie"
 require "active_resource/railtie"
 require "rails/test_unit/railtie"
@@ -20,7 +18,7 @@ module Easybt
     # -- all .rb files in that directory are automatically loaded.
 
     # Add additional load paths for your own custom dirs
-    # config.load_paths += %W( #{config.root}/extras )
+    # config.autoload_paths += %W( #{config.root}/extras )
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named
@@ -43,7 +41,7 @@ module Easybt
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
-    config.generators do |g|
+    config.app_generators do |g|
       g.orm                 :mongoid
       g.template_engine     :haml
       g.test_framework      :rspec, :fixture => true
