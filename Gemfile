@@ -36,10 +36,10 @@ gem 'curb'
 gem 'jquery-rails'
 
 # Testing
-#group :development, :test do
-#  gem 'rspec-rails'
-#  gem 'cucumber-rails'
-#end
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'cucumber-rails'
+end
 
 group :test do
   gem 'capybara'
