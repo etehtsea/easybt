@@ -10,3 +10,4 @@ config/mongoid.yml
 *~
 .redcar
 *.rbc
+*.swp
