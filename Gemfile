@@ -35,7 +35,7 @@ gem 'jquery-rails'
 
 # Testing
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', 	    '~> 2.5'
   gem 'cucumber-rails',     :git => 'git://github.com/aslakhellesoy/cucumber-rails.git'
 end
 
