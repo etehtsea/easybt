@@ -5,7 +5,8 @@ gem 'rails',                :git => 'git://github.com/rails/rails.git'
 
 # Database gems
 gem 'bson_ext'
-gem 'mongoid',              :git => 'git://github.com/mongoid/mongoid.git'
+gem 'mongoid',              :git => 'git://github.com/cgriego/mongoid.git',
+			    :branch => 'observers-rails31'
 gem 'mongoid_slug',         :git => 'git://github.com/papercavalier/mongoid-slug.git',
                             :require => 'mongoid/slug'
 
@@ -26,7 +27,7 @@ gem 'compass'
 gem 'haml'
 gem 'haml-rails'
 gem 'rubb'
-gem 'formtastic',           :git => 'git://github.com/justinfrench/formtastic.git'
+gem 'formtastic',           :git => 'git://github.com/etehtsea/formtastic.git'
 
 # Ancillary gems
 gem 'bencodr'
