@@ -37,10 +37,6 @@ gem 'jquery-rails'
 # Testing
 group :development, :test do
   gem 'rspec-rails', 	    '~> 2.5'
-  gem 'cucumber-rails',     :git => 'git://github.com/aslakhellesoy/cucumber-rails.git'
-end
-
-group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'fabrication'
