@@ -1,24 +1,4 @@
 GIT
-  remote: git://github.com/aslakhellesoy/cucumber-rails.git
-  revision: 5fa1bd0b7b1c20eb3f44ae21acc0c1d5fecc5322
-  specs:
-    cucumber-rails (0.4.0)
-      cucumber (>= 0.10.1)
-      nokogiri (>= 1.4.4)
-      rack-test (>= 0.5.7)
-
-GIT
-  remote: git://github.com/cgriego/mongoid.git
-  revision: 8fcfe2a7f3e6364a8131861a2f8e65b31977651a
-  branch: observers-rails31
-  specs:
-    mongoid (2.0.0.rc.7)
-      activemodel (~> 3.0)
-      mongo (~> 1.2)
-      tzinfo (~> 0.3.22)
-      will_paginate (~> 3.0.pre)
-
-GIT
   remote: git://github.com/etehtsea/formtastic.git
   revision: e4ebcb1f76fe107fefd2c48b38c766cff9d9a115
   specs:
@@ -27,32 +7,41 @@ GIT
 
 GIT
   remote: git://github.com/jnicklas/carrierwave.git
-  revision: 951bf30e112ab0789f7afce6c5d3b5cbd42f814e
+  revision: 1f7d121653e57b840fc771418ae6d6f9e601aaec
   specs:
     carrierwave (0.5.3)
       activesupport (~> 3.0)
 
 GIT
   remote: git://github.com/josevalim/inherited_resources.git
-  revision: 5d988cfcfa632cc9c67fff4cb100594ea683482a
+  revision: 12571db2d9524d52fe8785c3023221cf1ceb1cae
   specs:
-    inherited_resources (1.2.1)
+    inherited_resources (1.2.2)
       has_scope (~> 0.5.0)
       responders (~> 0.6.0)
 
 GIT
-  remote: git://github.com/papercavalier/mongoid-slug.git
-  revision: c4bc71ed0fbcd1fddcb162bda722df7c16a8bd99
+  remote: git://github.com/mongoid/mongoid.git
+  revision: 1357e5962452d04314a869720759945e2497c519
   specs:
-    mongoid_slug (0.6.4)
-      mongoid (~> 2.0.0.rc.7)
+    mongoid (2.0.1)
+      activemodel (~> 3.0)
+      mongo (~> 1.3)
+      tzinfo (~> 0.3.22)
+
+GIT
+  remote: git://github.com/papercavalier/mongoid-slug.git
+  revision: 45e7ab95279948361a047615bb92fd3b2788f8e2
+  specs:
+    mongoid_slug (0.7.2)
+      mongoid (~> 2.0.0)
       stringex (~> 1.2.0)
 
 GIT
   remote: git://github.com/plataformatec/devise.git
-  revision: 73669e09c82ddd14b560c7b45df1c95c9ebafe33
+  revision: 64cf8a45347137053b6c91bf85a3542c26e94771
   specs:
-    devise (1.3.0.dev)
+    devise (1.4.0.dev)
       bcrypt-ruby (~> 2.1.2)
       orm_adapter (~> 0.0.3)
       warden (~> 1.0.3)
@@ -65,22 +54,22 @@ GIT
 
 GIT
   remote: git://github.com/rack/rack.git
-  revision: 2f92be21302db255f4357e95e9e1ce535b1a6a89
+  revision: 4d93f90b58b09329a227fac975228eeef76f2952
   specs:
     rack (1.2.1)
 
 GIT
   remote: git://github.com/rails/rails.git
-  revision: 58becf116580c37c63b89f4a660ebe293f6e7c4e
+  revision: bf40c729c6930ffc711760948701e5edf3edb25b
   specs:
     actionmailer (3.1.0.beta)
       actionpack (= 3.1.0.beta)
-      mail (~> 2.2.15)
+      mail (~> 2.2.16)
     actionpack (3.1.0.beta)
       activemodel (= 3.1.0.beta)
       activesupport (= 3.1.0.beta)
       builder (~> 3.0.0)
-      erubis (~> 2.6.6)
+      erubis (~> 2.7.0)
       i18n (~> 0.5.0)
       rack (~> 1.2.1)
       rack-cache (~> 1.0.0)
@@ -101,6 +90,7 @@ GIT
       activemodel (= 3.1.0.beta)
       activesupport (= 3.1.0.beta)
     activesupport (3.1.0.beta)
+      multi_json (~> 1.0.0.rc3)
     rails (3.1.0.beta)
       actionmailer (= 3.1.0.beta)
       actionpack (= 3.1.0.beta)
@@ -118,25 +108,24 @@ GIT
 
 GIT
   remote: git://github.com/ryanb/cancan.git
-  revision: 7bcfd3d295c00d5b8c0193205549d4136959b6b9
+  revision: b1424dfa493202db3726565022bc09d381d89727
   specs:
     cancan (1.6.4)
 
 GIT
   remote: git://github.com/thoughtbot/high_voltage.git
-  revision: 422657eae774ead0a11bd3e9ba4db55a43880d95
+  revision: d42f21bc9750046ce728e26ed5830837ac7b98e6
   specs:
-    high_voltage (0.9.3)
+    high_voltage (0.9.4)
 
 GEM
   remote: http://rubygems.org/
   specs:
-    abstract (1.0.0)
     arel (2.0.9)
     bcrypt-ruby (2.1.4)
     bencodr (1.2.0)
-    bson (1.2.4)
-    bson_ext (1.2.4)
+    bson (1.3.0)
+    bson_ext (1.3.0)
     builder (3.0.0)
     capybara (0.4.1.2)
       celerity (>= 0.7.9)
@@ -153,23 +142,14 @@ GEM
     compass (0.10.6)
       haml (>= 3.0.4)
     configuration (1.2.0)
-    cucumber (0.10.2)
-      builder (>= 2.1.2)
-      diff-lcs (>= 1.1.2)
-      gherkin (>= 2.3.5)
-      json (>= 1.4.6)
-      term-ansicolor (>= 1.0.5)
     culerity (0.2.15)
     curb (0.7.15)
-    database_cleaner (0.6.6)
+    database_cleaner (0.6.7)
     diff-lcs (1.1.2)
-    erubis (2.6.6)
-      abstract (>= 1.0.0)
+    erubis (2.7.0)
     fabrication (0.9.5)
     ffi (1.0.7)
       rake (>= 0.8.7)
-    gherkin (2.3.5)
-      json (>= 1.4.6)
     haml (3.0.25)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
@@ -181,25 +161,25 @@ GEM
     jquery-rails (0.2.7)
       rails (~> 3.0)
       thor (~> 0.14.4)
-    json (1.5.1)
     json_pure (1.5.1)
     launchy (0.4.0)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
-    mail (2.2.15)
+    mail (2.2.17)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
-    mongo (1.2.4)
-      bson (>= 1.2.4)
+    mongo (1.3.0)
+      bson (>= 1.3.0)
+    multi_json (1.0.0.rc3)
     nokogiri (1.4.4)
     orm_adapter (0.0.4)
     polyglot (0.3.1)
-    rack-cache (1.0)
+    rack-cache (1.0.1)
       rack (>= 0.4)
-    rack-mount (0.7.1)
+    rack-mount (0.7.2)
       rack (>= 1.0.0)
     rack-ssl (1.3.2)
       rack
@@ -221,20 +201,18 @@ GEM
       rspec (~> 2.5.0)
     rubb (0.9.4)
     rubyzip (0.9.4)
-    selenium-webdriver (0.1.4)
+    selenium-webdriver (0.2.0)
       childprocess (>= 0.1.7)
       ffi (>= 1.0.7)
       json_pure
       rubyzip
     stringex (1.2.1)
-    term-ansicolor (1.0.5)
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
-    tzinfo (0.3.25)
+    tzinfo (0.3.26)
     warden (1.0.3)
       rack (>= 1.0.0)
-    will_paginate (3.0.pre2)
     xpath (0.1.3)
       nokogiri (~> 1.3)
 
@@ -248,7 +226,6 @@ DEPENDENCIES
   capybara
   carrierwave!
   compass
-  cucumber-rails!
   curb
   database_cleaner
   devise!

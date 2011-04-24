@@ -5,8 +5,7 @@ gem 'rails',                :git => 'git://github.com/rails/rails.git'
 
 # Database gems
 gem 'bson_ext'
-gem 'mongoid',              :git => 'git://github.com/cgriego/mongoid.git',
-			    :branch => 'observers-rails31'
+gem 'mongoid',              :git => 'git://github.com/mongoid/mongoid.git'
 gem 'mongoid_slug',         :git => 'git://github.com/papercavalier/mongoid-slug.git',
                             :require => 'mongoid/slug'
 
