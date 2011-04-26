@@ -24,9 +24,11 @@ gem 'inherited_resources',  :git => 'git://github.com/josevalim/inherited_resour
 gem 'high_voltage',         :git => 'git://github.com/thoughtbot/high_voltage.git'
 gem 'compass'
 gem 'haml'
+gem 'sass'
 gem 'haml-rails'
 gem 'rubb'
-gem 'formtastic',           :git => 'git://github.com/etehtsea/formtastic.git'
+gem 'formtastic',           :git => 'git://github.com/etehtsea/formtastic.git',
+                            :branch => 'update-rails-dep'
 
 # Ancillary gems
 gem 'bencodr'
