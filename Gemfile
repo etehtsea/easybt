@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
-gem "rack",                 :git => 'git://github.com/rack/rack.git'
-gem 'rails',                :git => 'git://github.com/rails/rails.git'
+gem 'rails', '~> 3.1.0.beta1'
 
 # Database gems
 gem 'bson_ext'
@@ -27,8 +26,7 @@ gem 'haml'
 gem 'sass'
 gem 'haml-rails'
 gem 'rubb'
-gem 'formtastic',           :git => 'git://github.com/etehtsea/formtastic.git',
-                            :branch => 'update-rails-dep'
+gem 'formtastic',           :git => 'git://github.com/justinfrench/formtastic.git'
 
 # Ancillary gems
 gem 'bencodr'
