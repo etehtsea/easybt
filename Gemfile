@@ -6,3 +6,6 @@ gem 'sass'
 gem 'coffee-script'
 gem 'uglifier'
 gem 'jquery-rails'
+gem 'haml'
+gem 'haml-rails'
+gem 'nifty-generators', :group => :development
