@@ -8,4 +8,5 @@ gem 'uglifier'
 gem 'jquery-rails'
 gem 'haml'
 gem 'haml-rails'
-gem 'nifty-generators', :group => :development
+gem 'mongoid',  :git => 'https://github.com/mongoid/mongoid.git'
+gem 'bson_ext', "~> 1.3"
