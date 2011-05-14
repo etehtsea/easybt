@@ -1,6 +1,5 @@
 .bundle
-db/*.sqlite3
+.sass-cache
 log/*.log
 tmp/
 config/mongoid.yml
-.sass-cache/
