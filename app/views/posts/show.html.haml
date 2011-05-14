@@ -2,11 +2,11 @@
 
 %p
   %b Title:
-  = @post.title
+  = resource.title
 %p
   %b Body:
-  = @post.body
+  = resource.body
 
-= link_to 'Edit', edit_post_path(@post)
+= link_to 'Edit', edit_resource_path(resource)
 \|
-= link_to 'Back', posts_path
+= link_to 'Back', collection_path

@@ -22,6 +22,8 @@ feature "Posts", %q{
 
     click_button 'Save'
 
+    page.should have_css("#flash_notice",
+                         :text => 'Post was successfully created.')
     page.should have_content('New post')
     page.should have_content('Post body')
   end
@@ -32,6 +34,8 @@ feature "Posts", %q{
     visit posts_path
     click_link 'Destroy'
 
+    page.should have_css("#flash_notice",
+                         :text => 'Post was successfully destroyed.')
     page.should have_no_content('New post')
   end
 
