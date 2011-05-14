@@ -1,13 +1,4 @@
-.DS_Store
-start.sh
 .bundle
 db/*.sqlite3
 log/*.log
-tmp/**/*
-public/uploads/*
-public/stylesheets/*
-config/mongoid.yml
-*~
-.redcar
-*.rbc
-*.swp
+tmp/
