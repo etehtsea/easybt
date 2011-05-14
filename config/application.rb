@@ -40,8 +40,6 @@ module Easybt
     # JavaScript files you want as :defaults (application.js is always included).
     # config.action_view.javascript_expansions[:defaults] = %w(prototype prototype_ujs)
 
-    config.generators.test_framework = false
-
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
@@ -50,5 +48,12 @@ module Easybt
 
     # Enable the asset pipeline
     config.assets.enabled = true
+
+    config.generators do |g|
+      g.orm                 :mongoid
+      g.template_engine     :haml
+      g.test_framework      :rspec, :fixture => true
+      g.fixture_replacement :fabrication
+    end
   end
 end

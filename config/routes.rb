@@ -1,3 +1,5 @@
 Easybt::Application.routes.draw do
-  # root :to => 'welcome#index'
+  resources :posts
+
+  root :to => 'posts#index'
 end
