@@ -50,9 +50,5 @@ module Easybt
 
     # Enable the asset pipeline
     config.assets.enabled = true
-
-    config.app_generators do |g|
-      g.template_engine :haml
-    end
   end
 end
