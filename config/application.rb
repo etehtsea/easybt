@@ -54,6 +54,7 @@ module Easybt
       g.template_engine     :haml
       g.test_framework      :rspec, :fixture => true
       g.fixture_replacement :fabrication
+      g.stylesheets         false
     end
   end
 end
