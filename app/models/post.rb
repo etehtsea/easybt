@@ -4,6 +4,6 @@ class Post
   field :title
   field :body
 
-  validates_presence_of :title
+  validates :title, :presence => true
 end
 
