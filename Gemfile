@@ -1,14 +1,18 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.beta1'
+gem 'rails'              , :git => 'https://github.com/rails/rails.git',
+                           :branch => '3-1-stable'
 
+gem 'unicorn'
 gem 'sass'
 gem 'coffee-script'
 gem 'uglifier'
 gem 'jquery-rails'
 gem 'haml'
 gem 'haml-rails'
-gem 'formtastic'         , :git => 'https://github.com/justinfrench/formtastic.git'
+gem 'formtastic'         , :git => 'https://github.com/etehtsea/formtastic.git',
+                           :branch => 'all_fields_required_by_default-fix'
+gem 'show_for'           , :git => 'https://github.com/plataformatec/show_for.git'
 
 gem 'inherited_resources', :git => 'https://github.com/josevalim/inherited_resources.git'
 gem 'mongoid'            , :git => 'https://github.com/mongoid/mongoid.git'
