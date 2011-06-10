@@ -1,3 +1,3 @@
 Fabricator(:post) do
-  title { Fabricate.sequence(:title, 1) { |i| "Post ##{i}" } }
+  title { sequence(:post_title, 1) { |i| "Post ##{i}" } }
 end

@@ -1,0 +1,18 @@
+%h1 Listing releases
+
+%table
+  %tr
+    %th Title
+    %th
+    %th
+    %th
+
+  - collection.each do |release|
+    %tr
+      %td= link_to release.title, release
+      %td= link_to 'Edit', edit_resource_path(release)
+      %td= link_to 'Destroy', release, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Release', new_resource_path

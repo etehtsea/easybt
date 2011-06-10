@@ -20,7 +20,7 @@ feature "Posts", %q{
     fill_in 'Title', :with => 'New post'
     fill_in 'Body',  :with => 'Post body'
 
-    click_button 'Save'
+    click_button 'Create Post'
 
     page.should have_css("#flash_notice",
                          :text => 'Post was successfully created.')
@@ -45,7 +45,7 @@ feature "Posts", %q{
 
     click_link 'Edit'
     fill_in 'Title', :with => 'Edited post'
-    click_button 'Save'
+    click_button 'Update Post'
 
     page.should have_content('Edited post')
   end

@@ -1,0 +1,6 @@
+= show_for resource do |a|
+  = a.attributes :title, :description
+
+= link_to 'Edit', edit_resource_path(resource)
+\|
+= link_to 'Back', collection_path
