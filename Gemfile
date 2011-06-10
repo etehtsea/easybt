@@ -17,6 +17,7 @@ gem 'show_for'           , :git => 'https://github.com/plataformatec/show_for.gi
 gem 'inherited_resources', :git => 'https://github.com/josevalim/inherited_resources.git'
 gem 'mongoid'            , :git => 'https://github.com/mongoid/mongoid.git'
 gem 'bson_ext'           , '~> 1.3'
+gem 'carrierwave'
 
 group :test, :development do
   gem 'rspec-rails'      , '~> 2.6'

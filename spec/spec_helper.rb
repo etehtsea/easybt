@@ -18,6 +18,11 @@ Spork.prefork do
     config.before(:each)  { DatabaseCleaner.start }
     config.after(:each)   { DatabaseCleaner.clean }
   end
+
+  CarrierWave.configure do |config|
+    config.storage = :file
+    config.enable_processing = false
+  end
 end
 
 Spork.each_run do
