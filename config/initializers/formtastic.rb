@@ -18,8 +18,8 @@
 # Formtastic::FormBuilder.default_text_area_width = 50
 
 # Should all fields be considered "required" by default?
-# Defaults to false.
-# Formtastic::FormBuilder.all_fields_required_by_default = false
+# Defaults to true.
+Formtastic::FormBuilder.all_fields_required_by_default = false
 
 # Should select fields have a blank option/prompt by default?
 # Defaults to true.
@@ -41,7 +41,7 @@
 # Formtastic::FormBuilder.inline_errors = :sentence
 # Formtastic uses the following classes as default for hints, inline_errors and error list
 
-# If you override the class here, please ensure to override it in your formtastic_changes.css stylesheet as well
+# If you override the class here, please ensure to override it in your stylesheets as well
 # Formtastic::FormBuilder.default_hint_class = "inline-hints"
 # Formtastic::FormBuilder.default_inline_error_class = "inline-errors"
 # Formtastic::FormBuilder.default_error_list_class = "errors"
@@ -66,7 +66,7 @@
 # Specifies if labels/hints for input fields automatically be looked up using I18n.
 # Default value: true. Overridden for specific fields by setting value to true,
 # i.e. :label => true, or :hint => true (or opposite depending on initialized value)
-# Formtastic::FormBuilder.i18n_lookups_by_default = false
+# Formtastic::FormBuilder_lookups_by_default = false
 
 # You can add custom inputs or override parts of Formtastic by subclassing Formtastic::FormBuilder and
 # specifying that class here.  Defaults to Formtastic::FormBuilder.
