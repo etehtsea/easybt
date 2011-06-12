@@ -1,5 +1,11 @@
 = show_for resource do |a|
-  = a.attributes :title, :description
+  = a.attribute :title
+  = a.attribute :description
+  = a.attribute :files do
+    - resource.files.each do |file|
+      = "#{file["path"][0]} => #{number_to_human_size(file["length"])}"
+  = a.value :torrent do
+    = link_to 'Download', resource.torrent.url
 
 = link_to 'Edit', edit_resource_path(resource)
 \|
