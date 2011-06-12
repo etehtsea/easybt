@@ -29,7 +29,7 @@ class Release
     if metainfo.key?('files')
       metainfo['files']
     else
-      [{ length: metainfo['length'], path: metainfo['name'] }]
+      [{ length: metainfo['length'], path: [metainfo['name']] }]
     end
   end
 
