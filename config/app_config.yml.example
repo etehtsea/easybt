@@ -1,0 +1,2 @@
+tracker_uri: "http://host:port"
+scrape_uri: "http://host:port/scrape/?info_hash="
