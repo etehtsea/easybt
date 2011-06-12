@@ -131,6 +131,8 @@ GEM
     execjs (1.1.2)
       multi_json (~> 1.0)
     ffi (1.0.9)
+    forgery (0.3.8)
+      nokogiri (~> 1.4)
     growl (1.0.3)
     guard (0.4.2)
       thor (~> 0.14.6)
@@ -233,6 +235,7 @@ DEPENDENCIES
   coffee-script
   database_cleaner
   fabrication!
+  forgery
   formtastic!
   growl (~> 1.0.3)
   guard-bundler (~> 0.1)

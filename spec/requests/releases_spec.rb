@@ -10,8 +10,8 @@ feature "Releases", %q{
     2.times { Fabricate(:release) }
     visit releases_path
 
-    page.should have_content('Release #1')
-    page.should have_content('Release #2')
+    page.should have_content(Release.first.title)
+    page.should have_content(Release.last.title)
   end
 
   scenario "Create valid release" do

@@ -10,8 +10,8 @@ feature "Posts", %q{
     2.times { Fabricate(:post) }
     visit posts_path
 
-    page.should have_content('Post #1')
-    page.should have_content('Post #2')
+    page.should have_content(Post.first.title)
+    page.should have_content(Post.last.title)
   end
 
   scenario "Create post" do

@@ -1,3 +1,3 @@
 Fabricator(:post) do
-  title { sequence(:post_title, 1) { |i| "Post ##{i}" } }
+  title { Forgery::LoremIpsum.words(2) }
 end

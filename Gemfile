@@ -26,6 +26,7 @@ group :test, :development do
   gem 'capybara'         , :git => 'https://github.com/jnicklas/capybara.git'
   gem 'fabrication'      , :git => 'https://github.com/etehtsea/fabrication.git',
                            :branch => 'sequence'
+  gem 'forgery'
   gem 'launchy'
   gem 'database_cleaner'
 end
