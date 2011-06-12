@@ -1,9 +1,13 @@
 = show_for resource do |a|
   = a.attribute :title
   = a.attribute :description
-  = a.attribute :files do
-    - resource.files.each do |file|
-      = "#{file["path"][0]} => #{number_to_human_size(file["length"])}"
+  = a.attribute :stats do
+    %span#stats
+      = "Downloaded: #{resource.stats['downloaded']}"
+      = "Seeds: #{resource.stats['complete']}"
+      = "Leechers: #{resource.stats['incomplete']}"
+  = a.association :files, :collection_tag => :ul do |file|
+    %li= "#{file["path"][0]} => #{number_to_human_size(file["length"])}"
   = a.value :torrent do
     = link_to 'Download', resource.torrent.url
 

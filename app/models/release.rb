@@ -1,11 +1,11 @@
 class Release
   include Mongoid::Document
-  include Mongoid::Slug
 
   field :title
   field :description
   field :info_hash
   field :files, type: Array
+  field :stats, type: Hash, default: { complete: 0, downloaded: 0, incomplete: 0 }
 
   mount_uploader :torrent, TorrentUploader
 
@@ -20,6 +20,11 @@ class Release
   end
 
   private
+
+  def get_stats
+    scrape = Curl::Easy.perform(APP_CONFIG['scrape_uri'] + info_hash).body_str
+    self.stats = BEncodr.bdecode(scrape)['files'].values[0]
+  end
 
   def get_metainfo
     BEncodr.bdecode_file(torrent.current_path)['info']
