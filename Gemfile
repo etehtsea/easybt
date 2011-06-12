@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'haml-rails'
 gem 'bencodr'
+gem 'curb'
 gem 'formtastic'         , :git => 'https://github.com/justinfrench/formtastic.git'
 gem 'show_for'           , :git => 'https://github.com/plataformatec/show_for.git'
 
@@ -24,14 +25,14 @@ gem 'carrierwave'
 group :test, :development do
   gem 'rspec-rails'      , '~> 2.6'
   gem 'capybara'         , :git => 'https://github.com/jnicklas/capybara.git'
-  gem 'fabrication'      , :git => 'https://github.com/etehtsea/fabrication.git',
-                           :branch => 'sequence'
+  gem 'fabrication'      , :git => 'https://github.com/paulelliott/fabrication.git'
   gem 'forgery'
   gem 'launchy'
   gem 'database_cleaner'
 end
 
 group :test do
+  gem 'spork'            , '~> 0.9.0.rc'
   gem 'guard-spork'      , '~> 0.1'
   gem 'guard-rspec'      , '~> 0.3'
   gem 'guard-bundler'    , '~> 0.1'
