@@ -5,6 +5,7 @@ end
 guard 'spork', :rspec_env => { 'RAILS_ENV' => 'test' }, :wait => 30 do
   watch('config/application.rb')
   watch('config/environment.rb')
+  watch('config/app_config.yml')
   watch(%r{^config/environments/.+\.rb$})
   watch(%r{^config/initializers/.+\.rb$})
   watch('spec/spec_helper.rb')
