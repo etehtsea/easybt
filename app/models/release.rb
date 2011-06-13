@@ -34,7 +34,7 @@ class Release
   end
 
   def stats_outdated?
-    self.updated_at < 10.minutes.ago
+    self.updated_at < APP_CONFIG['update_interval'].minutes.ago
   end
 
   def get_metainfo

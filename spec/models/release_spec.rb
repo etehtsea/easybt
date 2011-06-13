@@ -44,7 +44,7 @@ describe Release do
   end
 
   context "#stats_outdated?" do
-    let(:release) { time_travel_to(30.minutes.ago) { Fabricate(:release) } }
+    let(:release) { time_travel_to((APP_CONFIG['update_interval'] + 20).minutes.ago) { Fabricate(:release) } }
 
     it "should false true if release is outdated" do
       release.send(:stats_outdated?).should eq(true)
@@ -59,7 +59,7 @@ describe Release do
 
   context "#update_stats" do
     let(:outdated_release) do
-      time_travel_to(30.minutes.ago) do
+      time_travel_to((APP_CONFIG['update_interval'] + 20).minutes.ago) do
         Fabricate(:release).tap do |obj|
           obj.stub!(:scrape).and_return("d5:filesd20:\xA8\xD0\xF4\xDE_'\xA2\x8C\x84p\x83\xE7\xCD\xD8];\x88\x91\xE8Zd8:completei1e10:downloadedi0e10:incompletei0eeee")
         end

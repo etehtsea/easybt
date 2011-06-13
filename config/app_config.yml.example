@@ -1,3 +1,4 @@
 tracker_uri: 'http://host:port'
 scrape_uri: 'http://host:port/scrape/?info_hash='
-time_zone: 'Central Time (US & Canada)'
+time_zone: 'UTC'
+update_interval: 10
