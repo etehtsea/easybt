@@ -1,11 +1,13 @@
 class Release
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   field :title
   field :description
   field :info_hash
   field :files, type: Array
-  field :stats, type: Hash, default: { complete: 0, downloaded: 0, incomplete: 0 }
+  field :stats, type: Hash,
+    default: { 'complete' => 0, 'downloaded' => 0, 'incomplete' => 0 }
 
   mount_uploader :torrent, TorrentUploader
 
@@ -19,11 +21,20 @@ class Release
     self.info_hash = get_info_hash(metainfo)
   end
 
+  def update_stats
+    if stats_outdated?
+      self.stats = BEncodr.bdecode(scrape)['files'].values[0] unless scrape.nil?
+    end
+  end
+
   private
 
-  def get_stats
-    scrape = Curl::Easy.perform(APP_CONFIG['scrape_uri'] + info_hash).body_str
-    self.stats = BEncodr.bdecode(scrape)['files'].values[0]
+  def scrape
+    Curl::Easy.perform(APP_CONFIG['scrape_uri'] + info_hash).body_str rescue nil
+  end
+
+  def stats_outdated?
+    self.updated_at < 10.minutes.ago
   end
 
   def get_metainfo
