@@ -6,8 +6,9 @@ At the moment it is in pre-alpha stage so don't expect much from it.
 
 ### Requirements
 
-* Ruby 1.9.2
-* MongoDB
+* [Ruby 1.9.2](http://ruby-lang.org/)
+* [mongoDB](http://www.mongodb.org/)
+* BitTorrent tracker (like [opentracker](http://erdgeist.org/arts/software/opentracker/))
 
 ### Install
 
