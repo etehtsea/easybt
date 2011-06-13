@@ -18,8 +18,7 @@ gem 'show_for'           , :git => 'https://github.com/plataformatec/show_for.gi
 gem 'inherited_resources', :git => 'https://github.com/josevalim/inherited_resources.git'
 gem 'mongoid'            , :git => 'https://github.com/mongoid/mongoid.git'
 gem 'bson_ext'           , '~> 1.3'
-gem 'mongoid_slug'       , :git => 'https://github.com/etehtsea/mongoid-slug.git',
-                           :branch => 'require_drop'
+gem 'mongoid_slug'       , :git => 'https://github.com/papercavalier/mongoid-slug.git'
 gem 'carrierwave'
 
 group :test, :development do
