@@ -35,6 +35,7 @@ group :test do
   gem 'guard-spork'      , '~> 0.1'
   gem 'guard-rspec'      , '~> 0.3'
   gem 'guard-bundler'    , '~> 0.1'
+  gem 'delorean'         , '~> 1.0'
 
   if RUBY_PLATFORM =~ /darwin/i
     gem 'rb-fsevent'     , '>= 0.4.0', :require => false
