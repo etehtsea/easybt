@@ -1,5 +1,6 @@
 class ReleasesController < InheritedResources::Base
   after_filter :check_stats, :only => :show
+  defaults :finder => :find_by_slug
 
   def show
     show! do |format|

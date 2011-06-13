@@ -1,6 +1,7 @@
 class Release
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Slug
 
   field :title
   field :description
@@ -8,6 +9,8 @@ class Release
   field :files, type: Array
   field :stats, type: Hash,
     default: { 'complete' => 0, 'downloaded' => 0, 'incomplete' => 0 }
+
+  slug :title
 
   mount_uploader :torrent, TorrentUploader
 

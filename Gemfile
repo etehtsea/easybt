@@ -3,7 +3,6 @@ source 'http://rubygems.org'
 gem 'rails'              , :git => 'https://github.com/rails/rails.git',
                            :branch => '3-1-stable'
 
-gem 'unicorn'
 gem 'sass'
 gem 'coffee-script'
 gem 'uglifier'
@@ -21,6 +20,10 @@ gem 'mongoid'            , :git => 'https://github.com/mongoid/mongoid.git'
 gem 'bson_ext'           , '~> 1.3'
 gem 'mongoid_slug'       , :git => 'https://github.com/papercavalier/mongoid-slug.git'
 gem 'therubyracer'       , '~> 0.9'
+
+group :development do
+  gem 'thin'
+end
 
 group :test, :development do
   gem 'rspec-rails'      , '~> 2.6'
