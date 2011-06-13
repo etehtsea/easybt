@@ -12,6 +12,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'bencodr'
 gem 'curb'
+gem 'carrierwave'
 gem 'formtastic'         , :git => 'https://github.com/justinfrench/formtastic.git'
 gem 'show_for'           , :git => 'https://github.com/plataformatec/show_for.git'
 
@@ -19,7 +20,7 @@ gem 'inherited_resources', :git => 'https://github.com/josevalim/inherited_resou
 gem 'mongoid'            , :git => 'https://github.com/mongoid/mongoid.git'
 gem 'bson_ext'           , '~> 1.3'
 gem 'mongoid_slug'       , :git => 'https://github.com/papercavalier/mongoid-slug.git'
-gem 'carrierwave'
+gem 'therubyracer'       , '~> 0.9'
 
 group :test, :development do
   gem 'rspec-rails'      , '~> 2.6'
