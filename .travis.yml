@@ -4,3 +4,5 @@ rvm:
 before_script:
   - rails g mongoid:config
   - cp config/app_config.yml.example config/app_config.yml
+
+env: "LANG='en_us.UTF-8' "
