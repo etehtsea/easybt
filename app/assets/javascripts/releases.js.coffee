@@ -4,4 +4,4 @@ updateStats = () ->
   setTimeout updateStats, 60000
 
 jQuery ->
-  setTimeout updateStats, 60000 if $("span#stats").length > 0
+  setTimeout updateStats, 2000 if $("span#stats").length > 0
