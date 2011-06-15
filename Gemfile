@@ -27,7 +27,7 @@ end
 
 group :test, :development do
   gem 'rspec-rails'      , '~> 2.6'
-  gem 'capybara'         , :git => 'https://github.com/jnicklas/capybara.git'
+  gem 'capybara'
   gem 'fabrication'      , :git => 'https://github.com/paulelliott/fabrication.git'
   gem 'forgery'
   gem 'launchy'
