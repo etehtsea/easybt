@@ -57,5 +57,8 @@ module Easybt
       g.fixture_replacement :fabrication
       g.stylesheets         false
     end
+
+    config.middleware.insert_after Rack::Runtime, Rack::GridFS,
+      :prefix => 'uploads', :lookup => :path, :database => "easybt_#{Rails.env}"
   end
 end
