@@ -29,7 +29,7 @@ group :test, :development do
   gem 'rspec-rails'      , '~> 2.6'
   gem 'capybara'
   gem 'fabrication'      , :git => 'https://github.com/paulelliott/fabrication.git'
-  gem 'forgery'
+  gem 'ffaker'
   gem 'launchy'
   gem 'database_cleaner'
 end

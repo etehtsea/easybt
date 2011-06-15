@@ -1,4 +1,4 @@
 Fabricator(:release) do
-  title { Forgery::LoremIpsum.words(2) }
+  title { Faker::Lorem.words(2) }
   torrent { File.open(File.join(Rails.root, 'spec', 'support', 'files', 'demo.torrent')) }
 end
