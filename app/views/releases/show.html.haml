@@ -1,6 +1,8 @@
 = show_for resource do |a|
   = a.attribute :title
   = a.attribute :description
+  = a.attribute :category
+  = a.attribute :subcategory
   = a.attribute :stats do
     %span#stats
       = "Downloaded: #{resource.stats['downloaded']}"

@@ -49,4 +49,24 @@ feature "Releases", %q{
 
     page.should have_content('Edited release')
   end
+
+  scenario "Filter releases by category" do
+    audio_release = Fabricate(:release, :category => 'Audio')
+    video_release = Fabricate(:release, :category => 'Video')
+
+    visit browse_releases_path('audio')
+
+    page.should have_content(audio_release.title)
+    page.should have_no_content(video_release.title)
+  end
+
+  scenario "Filter releases by subcategory" do
+    music_release = Fabricate(:release, :subcategory => 'Music')
+    abooks_release = Fabricate(:release, :subcategory => 'A-books')
+
+    visit browse_releases_path('audio', 'music')
+
+    page.should have_content(music_release.title)
+    page.should have_no_content(abooks_release.title)
+  end
 end

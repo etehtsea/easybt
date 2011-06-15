@@ -9,14 +9,33 @@ class Release
   field :files, type: Array
   field :stats, type: Hash,
     default: { 'complete' => 0, 'downloaded' => 0, 'incomplete' => 0 }
+  field :category
+  field :subcategory
 
   slug :title
 
+  CATEGORIES = {
+   'Audio' => ['Music', 'A-books'],
+   'Video' => ['Movies','Serials'],
+   'Applications' => ['Windows', 'Unix', 'Mac'],
+   'Games' => ['Pc', 'Mac', 'Console'],
+   'Other' => ['E-books', 'Pictures', 'Comics']
+  }
+
   mount_uploader :torrent, TorrentUploader
 
-  before_create :set_metainfo
+  before_create :set_category, :set_metainfo
 
   validates :title, :torrent, :presence => true
+
+  scope :with_category,    ->(id) { where(:category => id.capitalize) }
+  scope :with_subcategory, ->(id) { where(:subcategory => id.capitalize) }
+
+  def set_category
+    CATEGORIES.each_pair do |cat, sub|
+      self.category = cat if sub.include?(self.subcategory)
+    end
+  end
 
   def set_metainfo
     metainfo = get_metainfo

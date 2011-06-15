@@ -9,6 +9,14 @@ class ReleasesController < InheritedResources::Base
     end
   end
 
+  def browse
+    @releases = if params[:subid]
+      Release.with_subcategory(params[:subid])
+    else
+      Release.with_category(params[:id])
+    end
+  end
+
   private
 
   def check_stats
