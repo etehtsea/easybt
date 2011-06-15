@@ -9,7 +9,7 @@ guard 'spork', :rspec_env => { 'RAILS_ENV' => 'test' }, :wait => 30 do
   watch(%r{^config/environments/.+\.rb$})
   watch(%r{^config/initializers/.+\.rb$})
   watch('spec/spec_helper.rb')
-  watch(%r{^spec/support/fabricators/.*\.rb$})
+  watch(%r{^spec/fabricators/.+_fabricator\.rb})
 end
 
 guard 'rspec', :cli => "-c -f documentation --fail-fast --drb",
