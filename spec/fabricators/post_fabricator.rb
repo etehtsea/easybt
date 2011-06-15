@@ -1,3 +1,3 @@
 Fabricator(:post) do
-  title { Faker::Lorem.words(2) }
+  title { Faker::Lorem.word }
 end
