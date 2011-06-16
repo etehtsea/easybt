@@ -21,6 +21,7 @@ gem 'bson_ext'           , '~> 1.3'
 gem 'mongoid_slug'       , :git => 'https://github.com/papercavalier/mongoid-slug.git'
 gem 'therubyracer'       , '~> 0.9'
 gem 'rack-gridfs'        , :require => 'rack/gridfs'
+gem 'devise'
 
 group :development do
   gem 'thin'
