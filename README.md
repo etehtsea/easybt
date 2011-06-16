@@ -16,7 +16,7 @@ At the moment it is in pre-alpha stage so don't expect much from it.
 $ git clone https://github.com/etehtsea/easybt.git
 $ bundle install
 $ cp config/app_config.yml.example config/app_config.yml
-$ rails s
+$ rails s thin
 ```
 ### Configuration
 You can configure your app in `app_config.yml`
