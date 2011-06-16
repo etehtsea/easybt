@@ -14,7 +14,7 @@ describe Release::Extras do
   end
 
   context "#get_metainfo" do
-    let(:metainfo) { DummyClass.get_metainfo('spec/support/files/demo.torrent') }
+    let(:metainfo) { DummyClass.send(:get_metainfo, 'spec/support/files/demo.torrent') }
 
     it "should return torrent's info section" do
       metainfo.should eq(demo_metainfo)
@@ -29,12 +29,12 @@ describe Release::Extras do
     let(:demo_files_list) { [{ :length=>88716, :path=>["1175547.png"] }] }
 
     it "should return torrent's files list" do
-      DummyClass.get_files_list(demo_metainfo).should == demo_files_list
+      DummyClass.send(:get_files_list, demo_metainfo).should == demo_files_list
     end
   end
 
   context "#get_info_hash" do
-    let(:info_hash) { DummyClass.get_info_hash(demo_metainfo) }
+    let(:info_hash) { DummyClass.send(:get_info_hash, demo_metainfo) }
 
     it "should return torrent's SHA1 encoded info_hash" do
       info_hash.should == "%CEn%AF%EB%24Ou%F3%FEl%25%AC%A2n%0C%BA%A6%A5%C3%AE"
