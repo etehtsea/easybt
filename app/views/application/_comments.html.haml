@@ -1,0 +1,16 @@
+%div#comments
+  - if resource.comments.size > 0
+    %h3 Comments
+    - resource.comments.each do |comment|
+      %strong= "anonymous"
+      = "wrote at #{comment.created_at.to_formatted_s(:long)}:"
+      %p
+        = comment.content
+        = link_to "Edit", edit_polymorphic_path([resource, comment])
+        = link_to "Delete", [resource, comment], :method => :delete, :confirm => "Are you sure?"
+
+  %h3 New Comment
+  = semantic_form_for [resource, Comment.new] do |f|
+    = f.inputs do
+      = f.input :content, :as => :text, :label => false
+    = f.buttons

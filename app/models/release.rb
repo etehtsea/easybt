@@ -23,6 +23,8 @@ class Release
    'Other' => ['E-books', 'Pictures', 'Comics']
   }
 
+  embeds_many :comments, as: :commentable
+
   mount_uploader :torrent, TorrentUploader
 
   before_create :set_category, :set_metainfo
