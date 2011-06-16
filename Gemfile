@@ -31,12 +31,15 @@ group :test, :development do
   gem 'capybara'
   gem 'fabrication'      , :git => 'https://github.com/paulelliott/fabrication.git'
   gem 'ffaker'
-  gem 'launchy'
+  gem 'launchy'          , '1.0.0',
+                           :git => 'https://github.com/etehtsea/launchy.git',
+                           :branch => 'patch-1'
   gem 'database_cleaner'
 end
 
 group :test do
   gem 'spork'            , '~> 0.9.0.rc'
+  gem 'guard'            , :git => 'https://github.com/guard/guard.git'
   gem 'guard-spork'      , '~> 0.1'
   gem 'guard-rspec'      , '~> 0.3'
   gem 'guard-bundler'    , '~> 0.1'
