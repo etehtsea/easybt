@@ -2,6 +2,7 @@ class Release
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Slug
+  include Release::Extras
 
   field :title
   field :description
@@ -28,8 +29,8 @@ class Release
 
   validates :title, :torrent, :presence => true
 
-  scope :with_category,    ->(id) { where(:category => id.capitalize) }
-  scope :with_subcategory, ->(id) { where(:subcategory => id.capitalize) }
+  scope :with_category,    ->(id) { where(category:    id.capitalize) }
+  scope :with_subcategory, ->(id) { where(subcategory: id.capitalize) }
 
   def set_category
     CATEGORIES.each_pair do |cat, sub|
@@ -38,40 +39,18 @@ class Release
   end
 
   def set_metainfo
-    metainfo = get_metainfo
+    metainfo = get_metainfo(torrent.current_path)
     self.files = get_files_list(metainfo)
     self.info_hash = get_info_hash(metainfo)
-  end
-
-  def update_stats
-    if stats_outdated?
-      self.stats = BEncodr.bdecode(scrape)['files'].values[0] unless scrape.nil?
-    end
-  end
-
-  private
-
-  def scrape
-    Curl::Easy.perform(APP_CONFIG['scrape_uri'] + info_hash).body_str rescue nil
   end
 
   def stats_outdated?
     self.updated_at < APP_CONFIG['update_interval'].minutes.ago
   end
 
-  def get_metainfo
-    BEncodr.bdecode_file(torrent.current_path)['info']
-  end
-
-  def get_files_list(metainfo)
-    if metainfo.key?('files')
-      metainfo['files']
-    else
-      [{ length: metainfo['length'], path: [metainfo['name']] }]
+  def update_stats
+    if stats_outdated?
+      self.stats = BEncodr.bdecode(scrape)['files'].values[0] unless scrape.nil?
     end
-  end
-
-  def get_info_hash(metainfo)
-    CGI::escape(Digest::SHA1.digest(BEncodr.bencode(metainfo)))
   end
 end
