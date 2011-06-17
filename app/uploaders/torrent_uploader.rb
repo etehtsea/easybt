@@ -5,7 +5,7 @@ class TorrentUploader < CarrierWave::Uploader::Base
     "#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-   def extension_white_list
-     %w(torrent)
-   end
+  def extension_white_list
+    %w(torrent)
+  end
 end
