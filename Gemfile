@@ -11,7 +11,13 @@ gem 'haml'
 gem 'haml-rails'
 gem 'bencodr'
 gem 'curb'
-gem 'carrierwave'
+
+#FIXME: revert to upstream, when bug will fixed
+gem 'carrierwave'        , :git => 'https://github.com/skyeagle/carrierwave.git'
+gem 'rack-gridfs'        , :git => 'https://github.com/etehtsea/rack-gridfs.git',
+                           :branch => 'escaped_uri',
+                           :require => 'rack/gridfs'
+
 gem 'formtastic'         , :git => 'https://github.com/justinfrench/formtastic.git'
 gem 'show_for'           , :git => 'https://github.com/plataformatec/show_for.git'
 
@@ -20,7 +26,6 @@ gem 'mongoid'            , :git => 'https://github.com/mongoid/mongoid.git'
 gem 'bson_ext'           , '~> 1.3'
 gem 'mongoid_slug'       , :git => 'https://github.com/papercavalier/mongoid-slug.git'
 gem 'therubyracer'       , '~> 0.9'
-gem 'rack-gridfs'        , :require => 'rack/gridfs'
 gem 'devise'
 
 group :development do
