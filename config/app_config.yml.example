@@ -2,3 +2,4 @@ tracker_uri: 'http://host:port'
 scrape_uri: 'http://host:port/scrape/?info_hash='
 time_zone: 'UTC'
 update_interval: 10
+email: 'support@domain.tld'
