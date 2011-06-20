@@ -6,6 +6,10 @@ feature "Comments", %q{
   I want to CRUD own and view foreign comments
 } do
 
+  let(:user) { Fabricate(:user) }
+
+  background { sign_in(user) }
+
   scenario "Comments list on the release page" do
     release = Fabricate(:release)
     2.times { Fabricate(:comment, commentable: release) }
@@ -40,7 +44,10 @@ feature "Comments", %q{
   scenario "Delete comment" do
     release = Fabricate(:release)
     comment_text = Faker::Lorem.paragraph
-    Fabricate(:comment, commentable: release, content: comment_text)
+    Fabricate(:comment,
+              commentable: release,
+              content: comment_text,
+              user: user)
 
     visit release_path(release)
 
@@ -53,7 +60,7 @@ feature "Comments", %q{
   scenario "Edit comment" do
     release = Fabricate(:release)
     comment_text = Faker::Lorem.paragraph
-    Fabricate(:comment, commentable: release)
+    Fabricate(:comment, commentable: release, user: user)
 
     visit release_path(release)
 

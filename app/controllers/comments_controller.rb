@@ -3,6 +3,10 @@ class CommentsController < InheritedResources::Base
              :polymorphic => true,
              :finder => :find_by_slug
 
+  load_resource :post
+  load_resource :release
+  load_and_authorize_resource :comment, :through => [:post_id, :release_id]
+
   def create
     create! { polymorphic_url(parent) }
   end

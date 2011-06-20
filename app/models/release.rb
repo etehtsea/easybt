@@ -24,6 +24,7 @@ class Release
   }
 
   embeds_many :comments, as: :commentable
+  belongs_to :user
 
   mount_uploader :torrent, TorrentUploader
 

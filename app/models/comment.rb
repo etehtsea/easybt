@@ -5,4 +5,6 @@ class Comment
   field :content
 
   embedded_in :commentable, polymorphic: true
+
+  belongs_to :user
 end

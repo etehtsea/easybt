@@ -1,6 +1,8 @@
 class ReleasesController < InheritedResources::Base
-  after_filter :check_stats, :only => :show
+  load_and_authorize_resource :except => :browse
+  skip_authorization_check :only => :browse
   defaults :finder => :find_by_slug
+  after_filter :check_stats, :only => :show
 
   def show
     show! do |format|

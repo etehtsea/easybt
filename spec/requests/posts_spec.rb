@@ -6,6 +6,10 @@ feature "Posts", %q{
   I want to CRUD posts
 } do
 
+  let(:user) { Fabricate(:user, admin: true) }
+
+  background { sign_in(user) }
+
   scenario "Posts list" do
     2.times { Fabricate(:post) }
     visit posts_path

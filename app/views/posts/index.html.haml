@@ -12,9 +12,9 @@
     %tr
       %td= link_to post.title, post
       %td= post.body
-      %td= link_to 'Edit', edit_resource_path(post)
-      %td= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete
+      %td= edit_link post
+      %td= destroy_link post
 
 %br
 
-= link_to 'New Post', new_resource_path
+= create_link Post

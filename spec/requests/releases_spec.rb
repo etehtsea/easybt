@@ -6,6 +6,10 @@ feature "Releases", %q{
   I want to CRUD own and view foreign releases
 } do
 
+  let(:user) { Fabricate(:user) }
+
+  background { sign_in(user) }
+
   scenario "Releases list" do
     2.times { Fabricate(:release) }
     visit releases_path
@@ -29,7 +33,7 @@ feature "Releases", %q{
   end
 
   scenario "Delete release" do
-    Fabricate(:release, :title => 'New release')
+    Fabricate(:release, :title => 'New release', user: user)
 
     visit releases_path
     click_link 'Destroy'
@@ -40,7 +44,7 @@ feature "Releases", %q{
   end
 
   scenario "Edit release" do
-    Fabricate(:release, :title => 'New release')
+    Fabricate(:release, :title => 'New release', user: user)
     visit releases_path
 
     click_link 'Edit'
