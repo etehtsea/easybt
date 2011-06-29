@@ -12,10 +12,8 @@ gem 'haml-rails'
 gem 'bencodr'
 gem 'curb'
 
-#FIXME: revert to upstream, when bug will fixed
-gem 'carrierwave'        , :git => 'https://github.com/skyeagle/carrierwave.git'
-gem 'rack-gridfs'        , :git => 'https://github.com/etehtsea/rack-gridfs.git',
-                           :branch => 'escaped_uri',
+gem 'carrierwave'        , :git => 'https://github.com/jnicklas/carrierwave.git'
+gem 'rack-gridfs'        , :git => 'https://github.com/skinandbones/rack-gridfs.git',
                            :require => 'rack/gridfs'
 
 gem 'formtastic'         , :git => 'https://github.com/justinfrench/formtastic.git'
