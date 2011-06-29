@@ -9,6 +9,8 @@ class CommentsController < InheritedResources::Base
 
   def create
     create! { polymorphic_url(parent) }
+    @comment.user = current_user
+    @comment.save!
   end
 
   def update

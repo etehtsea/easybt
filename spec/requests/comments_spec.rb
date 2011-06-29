@@ -12,7 +12,7 @@ feature "Comments", %q{
 
   scenario "Comments list on the release page" do
     release = Fabricate(:release)
-    2.times { Fabricate(:comment, commentable: release) }
+    2.times { Fabricate(:comment, commentable: release, user: user) }
     visit release_path(release)
 
     page.should have_content(release.comments.first.content)
@@ -21,7 +21,7 @@ feature "Comments", %q{
 
   scenario "Comments list on the post page" do
     blog_post = Fabricate(:post)
-    2.times { Fabricate(:comment, commentable: blog_post) }
+    2.times { Fabricate(:comment, commentable: blog_post, user:user) }
     visit post_path(blog_post)
 
     page.should have_content(blog_post.comments.first.content)

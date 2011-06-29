@@ -2,8 +2,8 @@
   - if resource.comments.size > 0
     %h3 Comments
     - resource.comments.each do |comment|
-      %strong= "anonymous"
-      = "wrote at #{comment.created_at.to_formatted_s(:long)}:"
+      %strong= comment.user_email
+      wrote at #{comment.created_at.to_formatted_s(:long)}:
       %p
         = comment.content
         - if can? :update, comment
