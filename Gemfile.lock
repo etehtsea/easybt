@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/etehtsea/rack-gridfs.git
-  revision: c9ec70eb7ada3013637078e0705831667b82f20e
+  revision: 424f0af69d98aecf4935d79c6b4a5aff294dadfa
   branch: require-fix
   specs:
     rack-gridfs (0.4.1)

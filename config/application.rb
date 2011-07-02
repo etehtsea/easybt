@@ -10,6 +10,7 @@ require "sprockets/railtie"
 # current environment and also include :assets gems if in development
 # or test environments.
 Bundler.require *Rails.groups(:assets => %w(development test)) if defined?(Bundler)
+APP_CONFIG = YAML.load_file("config/app_config.yml")
 
 module Easybt
   class Application < Rails::Application
