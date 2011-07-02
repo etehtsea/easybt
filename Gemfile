@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails'              , :git => 'https://github.com/rails/rails.git',
-                           :branch => '3-1-stable'
+gem 'rails'              , :git => 'https://github.com/rails/rails.git' \
+                         , :branch => '3-1-stable'
 
 gem 'sass'
 gem 'coffee-script'
@@ -13,16 +13,16 @@ gem 'bencodr'
 gem 'curb'
 
 gem 'carrierwave'        , :git => 'https://github.com/jnicklas/carrierwave.git'
-gem 'rack-gridfs'        , :git => 'https://github.com/skinandbones/rack-gridfs.git',
-                           :require => 'rack/gridfs'
+gem 'rack-gridfs'        , :git => 'https://github.com/etehtsea/rack-gridfs.git' \
+                         , :branch => 'require-fix'
 
 gem 'formtastic'         , :git => 'https://github.com/justinfrench/formtastic.git'
 gem 'show_for'           , :git => 'https://github.com/plataformatec/show_for.git'
 
 gem 'inherited_resources', :git => 'https://github.com/josevalim/inherited_resources.git'
 gem 'mongoid'            , :git => 'https://github.com/mongoid/mongoid.git'
-gem 'bson_ext'           , '~> 1.3'
 gem 'mongoid_slug'       , :git => 'https://github.com/papercavalier/mongoid-slug.git'
+gem 'bson_ext'           , '~> 1.3'
 gem 'therubyracer'       , '~> 0.9'
 gem 'devise'
 gem 'cancan'
@@ -34,11 +34,11 @@ end
 group :test, :development do
   gem 'rspec-rails'      , '~> 2.6'
   gem 'capybara'
-  gem 'fabrication'      , :git => 'https://github.com/paulelliott/fabrication.git'
   gem 'ffaker'
+  gem 'fabrication'      , :git => 'https://github.com/paulelliott/fabrication.git'
   gem 'launchy'          , '1.0.0',
-                           :git => 'https://github.com/etehtsea/launchy.git',
-                           :branch => 'patch-1'
+                           :git => 'https://github.com/etehtsea/launchy.git' \
+                         , :branch => 'patch-1'
   gem 'database_cleaner'
 end
 

@@ -6,6 +6,16 @@ GIT
     launchy (1.0.0)
 
 GIT
+  remote: https://github.com/etehtsea/rack-gridfs.git
+  revision: c9ec70eb7ada3013637078e0705831667b82f20e
+  branch: require-fix
+  specs:
+    rack-gridfs (0.4.1)
+      mime-types
+      mongo (~> 1.2)
+      rack
+
+GIT
   remote: https://github.com/guard/guard.git
   revision: 2ff6a2229aabaa63444511cc5f0b0c5e31acd8ef
   specs:
@@ -113,15 +123,6 @@ GIT
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (~> 0.14.6)
-
-GIT
-  remote: https://github.com/skinandbones/rack-gridfs.git
-  revision: 59e6ce1cb4ee1723c13726b76b3b3554fbd6cc7b
-  specs:
-    rack-gridfs (0.4.1)
-      mime-types
-      mongo (~> 1.2)
-      rack
 
 GEM
   remote: http://rubygems.org/
