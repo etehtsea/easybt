@@ -4,11 +4,12 @@ require File.expand_path('../boot', __FILE__)
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
+require "sprockets/railtie"
 
-# If you have a Gemfile, require the gems listed there, including any gems
-# you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env) if defined?(Bundler)
-APP_CONFIG = YAML.load_file("config/app_config.yml")
+# If you have a Gemfile, require the default gems, the ones in the
+# current environment and also include :assets gems if in development
+# or test environments.
+Bundler.require *Rails.groups(:assets => %w(development test)) if defined?(Bundler)
 
 module Easybt
   class Application < Rails::Application

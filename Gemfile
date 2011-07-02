@@ -3,11 +3,7 @@ source 'http://rubygems.org'
 gem 'rails'              , :git => 'https://github.com/rails/rails.git' \
                          , :branch => '3-1-stable'
 
-gem 'sass'
-gem 'coffee-script'
-gem 'uglifier'
 gem 'jquery-rails'
-gem 'haml'
 gem 'haml-rails'
 gem 'bencodr'
 gem 'curb'
@@ -23,9 +19,17 @@ gem 'inherited_resources', :git => 'https://github.com/josevalim/inherited_resou
 gem 'mongoid'            , :git => 'https://github.com/mongoid/mongoid.git'
 gem 'mongoid_slug'       , :git => 'https://github.com/papercavalier/mongoid-slug.git'
 gem 'bson_ext'           , '~> 1.3'
-gem 'therubyracer'       , '~> 0.9'
 gem 'devise'
 gem 'cancan'
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails', "~> 3.1.0.rc"
+  gem 'coffee-script'
+  gem 'uglifier'
+  gem 'therubyracer', '~> 0.9'
+end
 
 group :development do
   gem 'thin'
