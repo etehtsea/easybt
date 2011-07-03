@@ -1,7 +1,7 @@
 rvm:
   - 1.9.2
+  - ruby-head
 
 before_script:
-  - gem i therubyracer --verbose
   - bundle exec rails g mongoid:config
   - cp config/app_config.yml.example config/app_config.yml
