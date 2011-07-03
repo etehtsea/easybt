@@ -1,7 +1,7 @@
 # easyBt
 [![Build Status](https://secure.travis-ci.org/etehtsea/easybt.png)](http://travis-ci.org/etehtsea/easybt)
 
-This app is aimed to be light frontend to any bittorrent tracker.
+This app is aimed to be light catalog to any bittorrent tracker.
 At the moment it is in pre-alpha stage so don't expect much from it.
 
 ## Installation and configuration
