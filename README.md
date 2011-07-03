@@ -1,4 +1,6 @@
 # easyBt
+[![Build Status](https://secure.travis-ci.org/etehtsea/easybt.png)](http://travis-ci.org/etehtsea/easybt)
+
 This app is aimed to be light frontend to any bittorrent tracker.
 At the moment it is in pre-alpha stage so don't expect much from it.
 
@@ -27,7 +29,7 @@ You can configure your app in `app_config.yml`
 are the only documentation at the moment.
 
 ## Running Tests
-[![Build Status](https://secure.travis-ci.org/etehtsea/easybt.png)](http://travis-ci.org/etehtsea/easybt)
+
 You can use [guard](https://github.com/guard/guard) to run tests continuously
 
 ```sh
