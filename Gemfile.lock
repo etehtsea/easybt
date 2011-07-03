@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/etehtsea/carrierwave.git
+  revision: 4e185066a34a359d58dfce99740a3ed7c66eb783
+  branch: mongoid-fix
+  specs:
+    carrierwave (0.5.4)
+      activesupport (~> 3.0)
+
+GIT
   remote: https://github.com/etehtsea/launchy.git
   revision: af74298c95d6089f2767060c7472163200a422d9
   branch: patch-1
@@ -21,13 +29,6 @@ GIT
   specs:
     guard (0.5.0)
       thor (~> 0.14.6)
-
-GIT
-  remote: https://github.com/jnicklas/carrierwave.git
-  revision: 3850f67ce1b7d25db595c3e2ec28b81ac172467c
-  specs:
-    carrierwave (0.5.4)
-      activesupport (~> 3.0)
 
 GIT
   remote: https://github.com/josevalim/inherited_resources.git

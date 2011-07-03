@@ -8,7 +8,8 @@ gem 'haml-rails'
 gem 'bencodr'
 gem 'curb'
 
-gem 'carrierwave'        , :git => 'https://github.com/jnicklas/carrierwave.git'
+gem 'carrierwave'        , :git => 'https://github.com/etehtsea/carrierwave.git' \
+                         , :branch => 'mongoid-fix'
 gem 'rack-gridfs'        , :git => 'https://github.com/etehtsea/rack-gridfs.git' \
                          , :branch => 'require-fix'
 
