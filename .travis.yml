@@ -2,5 +2,5 @@ rvm:
   - 1.9.2
 
 before_script:
-  - rails g mongoid:config
+  - bundle exec rails g mongoid:config
   - cp config/app_config.yml.example config/app_config.yml
