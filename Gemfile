@@ -33,7 +33,6 @@ end
 
 group :development do
   gem 'thin'
-  gem 'therubyracer', '~> 0.9'
 end
 
 group :test, :development do
