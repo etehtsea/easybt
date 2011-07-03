@@ -27,7 +27,7 @@ You can configure your app in `app_config.yml`
 are the only documentation at the moment.
 
 ## Running Tests
-
+[![Build Status](https://secure.travis-ci.org/etehtsea/easybt.png)](http://travis-ci.org/etehtsea/easybt)
 You can use [guard](https://github.com/guard/guard) to run tests continuously
 
 ```sh
