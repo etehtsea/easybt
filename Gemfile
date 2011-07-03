@@ -29,11 +29,11 @@ group :assets do
   gem 'sass-rails', "~> 3.1.0.rc"
   gem 'coffee-script'
   gem 'uglifier'
-  gem 'therubyracer', '~> 0.9'
 end
 
 group :development do
   gem 'thin'
+  gem 'therubyracer', '~> 0.9'
 end
 
 group :test, :development do
