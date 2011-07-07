@@ -294,7 +294,6 @@ DEPENDENCIES
   inherited_resources!
   jquery-rails
   launchy (= 1.0.0)!
-  libv8 (= 3.3.10.2)
   mongoid!
   mongoid_slug!
   rack-gridfs!
