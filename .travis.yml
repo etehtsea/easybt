@@ -3,5 +3,6 @@ rvm:
   - ruby-head
 
 before_script:
+  - ruby -rubygems -e 'puts Gem::Platform.new(RUBY_PLATFORM)'
   - cp config/app_config.yml.example config/app_config.yml
   - bundle exec rails g mongoid:config
