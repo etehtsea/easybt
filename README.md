@@ -36,7 +36,7 @@ You can use [guard](https://github.com/guard/guard) to run tests continuously
 $ guard start
 ```
 
-or just usual [rake](https://github.com/jimweirich/rake) task run them once
+or just usual [rake](https://github.com/jimweirich/rake) task run them at once
 
 ```sh
 $ rake spec
