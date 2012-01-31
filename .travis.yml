@@ -1,8 +1,7 @@
 rvm:
   - 1.9.2
-  - ruby-head
+  - 1.9.3
 
 before_script:
-  - ruby -rubygems -e 'puts Gem::Platform.new(RUBY_PLATFORM)'
   - cp config/app_config.yml.example config/app_config.yml
   - bundle exec rails g mongoid:config
