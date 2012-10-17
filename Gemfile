@@ -15,7 +15,7 @@ gem 'show_for'
 
 gem 'inherited_resources', :git => 'https://github.com/josevalim/inherited_resources.git'
 gem 'mongoid'
-gem 'mongoid_slug'       , :git => 'https://github.com/hakanensari/mongoid-slug.git'
+gem 'mongoid_slug'       , :git => 'https://github.com/digitalplaywright/mongoid-slug.git'
 gem 'bson_ext'           , '~> 1.3'
 gem 'devise'
 gem 'cancan'
